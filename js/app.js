@@ -120,5 +120,9 @@ class Arrow {
                                           // Mainly, idk canvas enough to understand how to refer to the
                                           // Y value, or understand how Arrow object will relate to the
                                           // HTML arrow in canvas...
+                                          // i.e. When I remove currentArrows[0], how do I also remove the
+                                          // corresponds arrow in canvas...becasue my undestanding of canvas
+                                          // is that when you draw something onto it, that drawing doesn't
+                                          // actually have an id of its own...
 */
 }
