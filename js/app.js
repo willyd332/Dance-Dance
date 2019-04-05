@@ -1,27 +1,94 @@
+window.addEventListener("keydown", function(e) {
+    if([32, 37, 38, 39, 40].indexOf(e.keyCode) > -1) {
+        e.preventDefault();
+    }
+});
 
+let rightKey = "up";
+let leftKey = "up";
+let upKey = "up";
+let downKey = "up";
 
-
-// here will be where you link in the other js files
-
-
-
-
-const canvas = document.getElementById('my-canvas');
-const ctx = canvas.getContext('2d');
-
-
-const animateEverything = () => {
-  // here you will call a bunch of functions that are animations
-      // you will define the if/elses
-      // within the other functions
-  // You will define everything within those functions...
-
-  // think of this simply as an interval for any animation function you go
-  // on to create
+const rightKeyListener = () => {
+  $('body').keydown(function(e){
+    if (e.keyCode === 39){
+      if (rightKey === "up"){
+    rightKey = "down";
+  }
+    setTimeout(function(){
+      if (rightKey === "down"){
+        rightKey = "expired";
+      }
+    }, 50)
+  }
+  })
+  $('body').keyup(function(e){
+      if (e.keyCode === 39){
+    rightKey = "up";
+  }
+  })
+}
+const leftKeyListener = () => {
+  $('body').keydown(function(e){
+    if (e.keyCode === 37){
+      if (leftKey === "up"){
+    leftKey = "down";
+  }
+    setTimeout(function(){
+      if (leftKey === "down"){
+        leftKey = "expired";
+      }
+    }, 50)
+  }
+  })
+  $('body').keyup(function(e){
+      if (e.keyCode === 37){
+    leftKey = "up";
+  }
+  })
+}
+const upKeyListener = () => {
+  $('body').keydown(function(e){
+    if (e.keyCode === 38){
+      if (upKey === "up"){
+    upKey = "down";
+  }
+    setTimeout(function(){
+      if (upKey === "down"){
+        upKey = "expired";
+      }
+    }, 50)
+  }
+  })
+  $('body').keyup(function(e){
+      if (e.keyCode === 38){
+    upKey = "up";
+  }
+  })
+}
+const downKeyListener = () => {
+  $('body').keydown(function(e){
+    if (e.keyCode === 40){
+      if (downKey === "up"){
+    downKey = "down";
+  }
+    setTimeout(function(){
+      if (downKey === "down"){
+        downKey = "expired";
+      }
+    }, 50)
+  }
+  })
+  $('body').keyup(function(e){
+      if (e.keyCode === 40){
+    downKey = "up";
+  }
+  })
 }
 
-const animate = () => {
-  ctx.clearRect(0, 0, canvas.width, canvas.height);
-  animateEverything()
-  window.requestAnimationFrame(animate);
+const liveGameListeners = () => {
+  rightKeyListener();
+  downKeyListener();
+  upKeyListener();
+  leftKeyListener();
 }
