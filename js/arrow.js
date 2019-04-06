@@ -10,7 +10,7 @@ class Arrow {
     this.img = img;
     this.direction = direction;
     this.speed = speed;
-    this.size = 80;
+    this.size = 50;
   }
   draw(){
     makeArrow(this.img,this.x,this.y,this.size)

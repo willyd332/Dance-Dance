@@ -4,14 +4,13 @@ const upArrowImg = document.getElementById("up-arrow");
 const downArrowImg = document.getElementById("down-arrow");
 
 
-// test shit var game = new Game(120,'Tedium-street copy.mp3',100,-50,'hard')
 
 class Game {
-  constructor(bpm, song, length, arrowInitY, difficulty) {
+  constructor(bpm, song, length, arrowInitY, difficulty, waitTime) {
     this.bpm = bpm;
     this.msPerBeat = this.msPerBeatFinder();
     this.song = song;
-    this.length = length;
+    this.length = length - this.msPerBeat;
     this.arrowInitY = arrowInitY;
     this.difficulty = difficulty;
     this.easyArray = [];
@@ -19,7 +18,14 @@ class Game {
     this.hardArray = [];
     this.easyArrowSpawn = 0;
     this.score = 0;
+    this.notesHit = 0;
+    this.notesMissed = 0;
+    this.totalNotes = this.notesMissed + this.notesHit;
+    this.perfectScore = this.totalNotes * 100;
+    this.streak = 0;
+    this.longestStreak = 0;
     this.tripBlock = 0;
+    this.waitTime = waitTime;
     this.gameBuild();
     this.gameStart();
 
@@ -39,12 +45,15 @@ class Game {
 
   };
   gameStart() {
-    this.playSong();
     const that = this;
+    this.playSong();
+    setTimeout(function(){
+      that.endSong();
+    }, that.length)
     setTimeout(function() {
       that.generateArrows();
       liveGameListeners();
-    }, (that.msPerBeat * 27))
+    }, (that.msPerBeat * this.waitTime))
 
 
   };
@@ -112,7 +121,7 @@ class Game {
   };
   generateArrowsEasy() {
     const that = this;
-    var easyArrowsGenerator = setInterval(function() {
+    window.easyArrowsGenerator = setInterval(function() {
       const chance = Math.random();
       const values = that.ArrowValues();
       if (chance < 0.85) {
@@ -123,7 +132,7 @@ class Game {
         if (chance < 0.20) {
           const arrowM = new Arrow(values[3], that.arrowInitY, values[5], values[4], 5)
           that.mediumArray.push(arrowM);
-          that.tripBlock = arrowM.y
+          that.tripBlock = new Date();
         }
       }
     }, that.msPerBeat)
@@ -131,13 +140,14 @@ class Game {
   };
   generateArrowsHard() {
     const that = this;
-    var hardArrowsGenerator = setInterval(function() {
+    window.hardArrowsGenerator = setInterval(function() {
       const chance = Math.random();
       const values = that.ArrowValues();
       if (chance < 0.25) {
         const arrow = new Arrow(values[0], that.arrowInitY, values[2], values[1], 5)
         that.hardArray.push(arrow);
-        if (arrow.y === that.tripBlock){
+        var testDate = new Date()
+        if (testDate === that.tripBlock){
           that.hardArray.pop();
         }
       }
@@ -149,15 +159,23 @@ class Game {
       if (this.easyArray[0].y > 580 && this.easyArray[0].y < 650) {
         if (this.easyArray[0].direction === 'right' && rightKey === 'down') {
           this.score += 100;
+          this.notesHit++
+          this.streak++
           this.easyArray.shift();
         } else if (this.easyArray[0].direction === 'left' && leftKey === 'down') {
           this.score += 100;
+          this.notesHit++
+          this.streak++
           this.easyArray.shift();
         } else if (this.easyArray[0].direction === 'down' && downKey === 'down') {
           this.score += 100;
+          this.notesHit++
+          this.streak++
           this.easyArray.shift();
         } else if (this.easyArray[0].direction === 'up' && upKey === 'down') {
           this.score += 100;
+          this.notesHit++
+          this.streak++
           this.easyArray.shift();
         }
       } else if (this.easyArray[0].y > 700) {
@@ -171,20 +189,33 @@ class Game {
       if (this.hardArray[0].y > 580 && this.hardArray[0].y < 650) {
         if (this.hardArray[0].direction === 'right' && rightKey === 'down') {
           this.score += 100;
+          this.notesHit++
+          this.streak++
           this.hardArray.shift();
         } else if (this.hardArray[0].direction === 'left' && leftKey === 'down') {
           this.score += 100;
+          this.notesHit++
+          this.streak++
           this.hardArray.shift();
         } else if (this.hardArray[0].direction === 'down' && downKey === 'down') {
           this.score += 100;
+          this.notesHit++
+          this.streak++
           this.hardArray.shift();
         } else if (this.hardArray[0].direction === 'up' && upKey === 'down') {
           this.score += 100;
+          this.notesHit++
+          this.streak++
           this.hardArray.shift();
         }
       } else if (this.hardArray[0].y > 700) {
         this.hardArray.shift();
         this.score -= 100;
+        this.notesMissed++
+        if (this.streak > this.longestStreak){
+          this.longestStreakstreak = this.streak;
+        }
+        this.streak = 0;
       }
     }
   }
@@ -207,6 +238,11 @@ class Game {
       } else if (this.mediumArray[0].y > 700) {
         this.mediumArray.shift();
         this.score -= 100;
+        this.notesMissed++
+        if (this.streak > this.longestStreak){
+          this.longestStreakstreak = this.streak;
+        }
+        this.streak = 0;
       }
     }
   }
@@ -215,7 +251,13 @@ class Game {
       if (this.mediumArray[0].y < 580) {
         if (this.hardArray[0].y < 580) {
           if (this.easyArray[0].y < 580) {
-            this.score -= 50;
+            if (rightKey === 'down' || leftKey === 'down' || upKey === 'down' || downKey === 'down'){
+            this.score -= 20;
+            if (this.streak > this.longestStreak){
+              this.longestStreakstreak = this.streak;
+              }
+            this.streak = 0;
+            }
           }
         }
       }
@@ -227,7 +269,15 @@ class Game {
     this.checkHard();
     this.missclickPointReducer()
   }
+  endSong(){
+    clearInterval(window.easyArrowsGenerator);
+    clearInterval(window.hardArrowsGenerator);
+  }
 }
+
+// window.cancelAnimationFrame(animate)  if they dont want 2x speed
+
+
 // calculations for timing
 /*
 milliseconds per beat:
