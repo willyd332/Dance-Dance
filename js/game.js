@@ -36,8 +36,8 @@ class Game {
 
   };
   playSong() {
-    var audio = new Audio(this.song); // song should be filepath
-    audio.play();
+    window.audio = new Audio(this.song); // song should be filepath
+    window.audio.play();
 
   };
   gameBuild() {
@@ -47,7 +47,7 @@ class Game {
   gameStart() {
     const that = this;
     this.playSong();
-    setTimeout(function(){
+    window.endingSong = setTimeout(function(){
       that.endSong();
     }, that.length)
     setTimeout(function() {
@@ -269,9 +269,22 @@ class Game {
     this.checkHard();
     this.missclickPointReducer()
   }
+  mainMenu(){
+    window.location.reload()
+  }
+  restartSong(){
+    this.endSong();
+    const that = this;
+    clearTimeout(window.endingSong)
+    setTimeout(function(){
+      window.cancelAnimationFrame(animationLoop);
+      that.gameStart();},2000)
+  }
   endSong(){
     clearInterval(window.easyArrowsGenerator);
     clearInterval(window.hardArrowsGenerator);
+    window.audio.pause();
+    window.audio.currentTime = 0;
   }
 }
 

@@ -2,6 +2,7 @@
 
 const makeArrow = (image,x,y,size) => {
   ctx.drawImage(image, x, y, size, size);
+  ctx2.drawImage(image, x, y, size, size);
 }
 class Arrow {
   constructor(x,y,img,direction,speed){

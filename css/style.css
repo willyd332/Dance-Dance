@@ -1,6 +1,31 @@
 canvas {
   background-color: red;
 }
+.game {
+  height: 750px;
+  width: 100%;
+  position: absolute;
+  background-color: purple;
+}
+
+.canvas-box {
+  display: inline-block;
+  background-color: blue;
+}
+.score {
+  vertical-align: top;
+  display: inline-block;
+  background-color: green;
+  width: 8%;
+  height: 750px;
+}
+.game-menu{
+  vertical-align: top;
+  width: 15%;
+  height: 750px;
+  display: inline-block;
+  background-color: orange;
+}
 
 .arrow {
   display: none;
