@@ -44,6 +44,18 @@ const animateArrows = () => {
   game.hardArray.forEach(function(i){i.move()})
   game.hardArray.forEach(function(i){i.draw()})
 }
+if (game.easyArray2[0]){
+game.easyArray2.forEach(function(i){i.move()})
+game.easyArray2.forEach(function(i){i.draw()})
+}
+if (game.mediumArray2[0]){
+game.mediumArray2.forEach(function(i){i.move()})
+game.mediumArray2.forEach(function(i){i.draw()})
+}
+if (game.hardArray2[0]){
+game.hardArray2.forEach(function(i){i.move()})
+game.hardArray2.forEach(function(i){i.draw()})
+}
   game.check();
 }
 

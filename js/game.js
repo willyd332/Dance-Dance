@@ -16,15 +16,24 @@ class Game {
     this.easyArray = [];
     this.mediumArray = [];
     this.hardArray = [];
+    this.easyArray2 = [];
+    this.mediumArray2 = [];
+    this.hardArray2 = [];
     this.easyArrowSpawn = 0;
     this.score = 0;
+    this.score2 = 0;
     this.notesHit = 0;
     this.notesMissed = 0;
+    this.notesHit2 = 0;
+    this.notesMissed2 = 0;
     this.totalNotes = this.notesMissed + this.notesHit;
+    this.totalNotes2 = this.notesMissed2 + this.notesHit2;
     this.perfectScore = this.totalNotes * 100;
+    this.perfectScore2 = this.totalNotes2 * 100;
     this.streak = 0;
+    this.streak2 = 0;
     this.longestStreak = 0;
-    this.tripBlock = 0;
+    this.longestStreak2 = 0;
     this.waitTime = waitTime;
     this.gameBuild();
     this.gameStart();
@@ -122,37 +131,46 @@ class Game {
   generateArrowsEasy() {
     const that = this;
     window.easyArrowsGenerator = setInterval(function() {
-      const chance = Math.random();
-      const values = that.ArrowValues();
-      if (chance < 0.85) {
-        const arrow = new Arrow(values[0], that.arrowInitY, values[2], values[1], 5)
+      window.easyChance = Math.random();
+      window.easyValues = that.ArrowValues();
+      if (window.easyChance < 0.85) {
+        const arrow = new Arrow(window.easyValues[0], that.arrowInitY, window.easyValues[2], window.easyValues[1], 5, 1)
         that.easyArray.push(arrow);
       }
       if (that.difficulty === 'hard') {
-        if (chance < 0.20) {
-          const arrowM = new Arrow(values[3], that.arrowInitY, values[5], values[4], 5)
+        if (window.easyChance < 0.20) {
+          const arrowM = new Arrow(window.easyValues[3], that.arrowInitY, window.easyValues[5], window.easyValues[4], 5, 1)
           that.mediumArray.push(arrowM);
-          that.tripBlock = new Date();
+        }
+      }
+    /// GENERATE PLAYER TWO ARROWS BELOW
+      if (window.easyChance < 0.85) {
+        const arrow2 = new Arrow(window.easyValues[0], that.arrowInitY, window.easyValues[2], window.easyValues[1], 5, 2)
+        that.easyArray2.push(arrow2);
+      }
+      if (that.difficulty === 'hard') {
+        if (window.easyChance < 0.20) {
+          const arrowM2 = new Arrow(window.easyValues[3], that.arrowInitY, window.easyValues[5], window.easyValues[4], 5, 2)
+          that.mediumArray2.push(arrowM2);
         }
       }
     }, that.msPerBeat)
-
   };
   generateArrowsHard() {
     const that = this;
     window.hardArrowsGenerator = setInterval(function() {
-      const chance = Math.random();
-      const values = that.ArrowValues();
-      if (chance < 0.25) {
-        const arrow = new Arrow(values[0], that.arrowInitY, values[2], values[1], 5)
+      window.chance = Math.random();
+      window.values = that.ArrowValues();
+      if (window.chance < 0.25) {
+        const arrow = new Arrow(window.values[0], that.arrowInitY, window.values[2], window.values[1], 5, 1)
         that.hardArray.push(arrow);
-        var testDate = new Date()
-        if (testDate === that.tripBlock){
-          that.hardArray.pop();
-        }
+      }
+    /// do the same for PLAYER 2
+      if (window.chance < 0.25) {
+        const arrow2 = new Arrow(window.values[0], that.arrowInitY, window.values[2], window.values[1], 5, 2)
+        that.hardArray2.push(arrow2);
       }
     }, (that.msPerBeat / 2))
-
   };
   checkEasy() {
     if (this.easyArray.length > 0) {
@@ -181,6 +199,45 @@ class Game {
       } else if (this.easyArray[0].y > 700) {
         this.easyArray.shift();
         this.score -= 100;
+        this.notesMissed++
+        if (this.streak > this.longestStreak){
+          this.longestStreak = this.streak;
+        }
+        this.streak = 0;
+      }
+    }
+    //// do the same for PLAYER 2
+    if (this.easyArray2.length > 0) {
+      if (this.easyArray2[0].y > 580 && this.easyArray2[0].y < 650) {
+        if (this.easyArray2[0].direction === 'right' && rightKey2 === 'down') {
+          this.score2 += 100;
+          this.notesHit2++
+          this.streak2++
+          this.easyArray2.shift();
+        } else if (this.easyArray2[0].direction === 'left' && leftKey2 === 'down') {
+          this.score2 += 100;
+          this.notesHit2++
+          this.streak2++
+          this.easyArray2.shift();
+        } else if (this.easyArray2[0].direction === 'down' && downKey2 === 'down') {
+          this.score2 += 100;
+          this.notesHit2++
+          this.streak2++
+          this.easyArray2.shift();
+        } else if (this.easyArray2[0].direction === 'up' && upKey2 === 'down') {
+          this.score2 += 100;
+          this.notesHit2++
+          this.streak2++
+          this.easyArray2.shift();
+        }
+      } else if (this.easyArray2[0].y > 700) {
+        this.easyArray2.shift();
+        this.score2 -= 100;
+        this.notesMissed2++
+        if (this.streak2 > this.longestStreak2){
+          this.longestStreak2 = this.streak2;
+        }
+        this.streak2 = 0;
       }
     }
   }
@@ -218,21 +275,63 @@ class Game {
         this.streak = 0;
       }
     }
+    //// do the same for player 2
+    if (this.hardArray2.length > 0) {
+      if (this.hardArray2[0].y > 580 && this.hardArray2[0].y < 650) {
+        if (this.hardArray2[0].direction === 'right' && rightKey2 === 'down') {
+          this.score2 += 100;
+          this.notesHit2++
+          this.streak2++
+          this.hardArray2.shift();
+        } else if (this.hardArray2[0].direction === 'left' && leftKey2 === 'down') {
+          this.score2 += 100;
+          this.notesHit2++
+          this.streak2++
+          this.hardArray2.shift();
+        } else if (this.hardArray[0].direction === 'down' && downKey2 === 'down') {
+          this.score2 += 100;
+          this.notesHit2++
+          this.streak2++
+          this.hardArray2.shift();
+        } else if (this.hardArray2[0].direction === 'up' && upKey2 === 'down') {
+          this.score2 += 100;
+          this.notesHit2++
+          this.streak2++
+          this.hardArray2.shift();
+        }
+      } else if (this.hardArray2[0].y > 700) {
+        this.hardArray2.shift();
+        this.score2 -= 100;
+        this.notesMissed2++
+        if (this.streak2 > this.longestStreak2){
+          this.longestStreak2 = this.streak2;
+        }
+        this.streak2 = 0;
+      }
+    }
   }
   checkMedium() {
     if (this.mediumArray.length > 0) {
       if (this.mediumArray[0].y > 580 && this.mediumArray[0].y < 650) {
         if (this.mediumArray[0].direction === 'right' && rightKey === 'down') {
           this.score += 100;
+          this.notesHit++
+          this.streak++
           this.mediumArray.shift();
         } else if (this.mediumArray[0].direction === 'left' && leftKey === 'down') {
           this.score += 100;
+          this.notesHit++
+          this.streak++
           this.mediumArray.shift();
         } else if (this.mediumArray[0].direction === 'down' && downKey === 'down') {
           this.score += 100;
+          this.notesHit++
+          this.streak++
           this.mediumArray.shift();
         } else if (this.mediumArray[0].direction === 'up' && upKey === 'down') {
           this.score += 100;
+          this.notesHit++
+          this.streak++
           this.mediumArray.shift();
         }
       } else if (this.mediumArray[0].y > 700) {
@@ -240,9 +339,43 @@ class Game {
         this.score -= 100;
         this.notesMissed++
         if (this.streak > this.longestStreak){
-          this.longestStreakstreak = this.streak;
+          this.longestStreak = this.streak;
         }
         this.streak = 0;
+      }
+    }
+    // do the same for player 2
+    if (this.mediumArray2.length > 0) {
+      if (this.mediumArray2[0].y > 580 && this.mediumArray2[0].y < 650) {
+        if (this.mediumArray2[0].direction === 'right' && rightKey2 === 'down') {
+          this.score2 += 100;
+          this.notesHit2++
+          this.streak2++
+          this.mediumArray2.shift();
+        } else if (this.mediumArray2[0].direction === 'left' && leftKey2 === 'down') {
+          this.score2 += 100;
+          this.notesHit2++
+          this.streak2++
+          this.mediumArray2.shift();
+        } else if (this.mediumArray2[0].direction === 'down' && downKey2 === 'down') {
+          this.score2 += 100;
+          this.notesHit2++
+          this.streak2++
+          this.mediumArray2.shift();
+        } else if (this.mediumArray2[0].direction === 'up' && upKey2 === 'down') {
+          this.score2 += 100;
+          this.notesHit2++
+          this.streak2++
+          this.mediumArray2.shift();
+        }
+      } else if (this.mediumArray2[0].y > 700) {
+        this.mediumArray2.shift();
+        this.score2 -= 100;
+        this.notesMissed2++
+        if (this.streak2 > this.longestStreak2){
+          this.longestStreak2 = this.streak2;
+        }
+        this.streak2 = 0;
       }
     }
   }
@@ -254,9 +387,25 @@ class Game {
             if (rightKey === 'down' || leftKey === 'down' || upKey === 'down' || downKey === 'down'){
             this.score -= 20;
             if (this.streak > this.longestStreak){
-              this.longestStreakstreak = this.streak;
+              this.longestStreak = this.streak;
               }
             this.streak = 0;
+            }
+          }
+        }
+      }
+    }
+    // do the same for Player2
+    if (this.mediumArray2.length > 0 && this.easyArray2.length > 0 && this.hardArray2.length > 0) {
+      if (this.mediumArray2[0].y < 580) {
+        if (this.hardArray2[0].y < 580) {
+          if (this.easyArray2[0].y < 580) {
+            if (rightKey2 === 'down' || leftKey2 === 'down' || upKey2 === 'down' || downKey2 === 'down'){
+            this.score2 -= 20;
+            if (this.streak2 > this.longestStreak2){
+              this.longestStreak2 = this.streak2;
+              }
+            this.streak2 = 0;
             }
           }
         }
@@ -281,8 +430,11 @@ class Game {
       that.gameStart();},2000)
   }
   endSong(){
+    console.log('endingSong');
     clearInterval(window.easyArrowsGenerator);
     clearInterval(window.hardArrowsGenerator);
+    // clearInterval(window.easyArrowsGenerator2);
+    // clearInterval(window.hardArrowsGenerator2);
     window.audio.pause();
     window.audio.currentTime = 0;
   }

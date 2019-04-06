@@ -9,9 +9,15 @@ let leftKey = "up";
 let upKey = "up";
 let downKey = "up";
 
+let rightKey2 = "up";
+let leftKey2 = "up";
+let upKey2 = "up";
+let downKey2 = "up";
+
 const rightKeyListener = () => {
   $('body').keydown(function(e){
     if (e.keyCode === 39){
+      console.log('w');
       if (rightKey === "up"){
     rightKey = "down";
   }
@@ -86,9 +92,90 @@ const downKeyListener = () => {
   })
 }
 
+const rightKeyListener2 = () => {
+  $('body').keydown(function(e){
+    if (e.keyCode === 68){
+      if (rightKey2 === "up"){
+    rightKey2 = "down";
+  }
+    setTimeout(function(){
+      if (rightKey2 === "down"){
+        rightKey2 = "expired";
+      }
+    }, 50)
+  }
+  })
+  $('body').keyup(function(e){
+      if (e.keyCode === 68){
+    rightKey2 = "up";
+  }
+  })
+}
+const leftKeyListener2 = () => {
+  $('body').keydown(function(e){
+    if (e.keyCode === 65){
+      if (leftKey2 === "up"){
+    leftKey2 = "down";
+  }
+    setTimeout(function(){
+      if (leftKey2 === "down"){
+        leftKey2 = "expired";
+      }
+    }, 50)
+  }
+  })
+  $('body').keyup(function(e){
+      if (e.keyCode === 65){
+    leftKey2 = "up";
+  }
+  })
+}
+const upKeyListener2 = () => {
+  $('body').keydown(function(e){
+    if (e.keyCode === 87){
+      if (upKey2 === "up"){
+    upKey2 = "down";
+  }
+    setTimeout(function(){
+      if (upKey2 === "down"){
+        upKey2 = "expired";
+      }
+    }, 50)
+  }
+  })
+  $('body').keyup(function(e){
+      if (e.keyCode === 87){
+    upKey2 = "up";
+  }
+  })
+}
+const downKeyListener2 = () => {
+  $('body').keydown(function(e){
+    if (e.keyCode === 83){
+      if (downKey2 === "up"){
+    downKey2 = "down";
+  }
+    setTimeout(function(){
+      if (downKey2 === "down"){
+        downKey2 = "expired";
+      }
+    }, 50)
+  }
+  })
+  $('body').keyup(function(e){
+      if (e.keyCode === 83){
+    downKey2 = "up";
+  }
+  })
+}
+
 const liveGameListeners = () => {
   rightKeyListener();
   downKeyListener();
   upKeyListener();
   leftKeyListener();
+  rightKeyListener2();
+  downKeyListener2();
+  upKeyListener2();
+  leftKeyListener2();
 }
