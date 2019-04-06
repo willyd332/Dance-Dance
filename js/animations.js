@@ -20,14 +20,6 @@ makeBox();
 const animateEverything = () => {
   makeBox();
   animateArrows();
-  // here you will call every animation in this page
-      // you will define the if/elses within the other functions
-  // You will define everything within those functions...
-
-  // the idea is that all of these animations will happen automatically...
-  //... based on changing data in the game.js file and so...
-  //... no animation will ever have to be directly called as they...
-  //... will automatically happen as data changes.
 }
 
 
