@@ -2,6 +2,7 @@ const canvas = document.getElementById('my-canvas');
 const ctx = canvas.getContext('2d');
 
 const makeBox = () => {
+ctx.beginPath()
 ctx.rect(0,620,canvas.width,50);
 ctx.fillStyle = 'black';
 ctx.fill();
