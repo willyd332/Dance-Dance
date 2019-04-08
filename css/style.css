@@ -55,6 +55,14 @@ button {
   display: block;
 }
 
+button:hover {
+  border-style: double;
+  border: black;
+  border-width: 5px;
+  box-shadow: 0px 0px 5px 5px violet;
+  text-shadow: 0px 0px black;
+}
+
 .difficulty {
   margin-top: 15%;
   margin-left: 2.3%;
@@ -77,6 +85,10 @@ button {
   width: 80%;
   height: 50%;
   display: block;
+}
+
+.song:hover {
+  
 }
 
 .restart {
@@ -161,7 +173,7 @@ span {
 }
 
 .score {
-  vertical-align: top;
+  /* vertical-align: top; */
   display: inline-block;
   width: 8%;
   height: 750px;

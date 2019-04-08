@@ -6,7 +6,7 @@ const downArrowImg = document.getElementById("down-arrow");
 
 
 class Game {
-  constructor(bpm, song, length, arrowInitY, difficulty, waitTime) {
+  constructor(bpm, song, length, arrowInitY, difficulty, waitTime, speed) {
     this.bpm = bpm;
     this.msPerBeat = this.msPerBeatFinder();
     this.song = song;
@@ -34,8 +34,9 @@ class Game {
     this.streak2 = 0;
     this.longestStreak = 0;
     this.longestStreak2 = 0;
-    this.restartState = '';
+    this.restartState = 'off';
     this.waitTime = waitTime;
+    this.speed = speed;
     this.gameBuild();
     this.gameStart();
 
@@ -47,6 +48,12 @@ class Game {
   };
   playSong() {
     window.audio = new Audio(this.song); // song should be filepath
+    window.audio.volume = .7;
+    if (this.song === 'rasputin.mp3'){
+      window.audio.volume = 1;
+    }
+    window.audio.pause();
+    window.audio.currentTime = 0;
     window.audio.play();
 
   };
@@ -184,24 +191,24 @@ class Game {
       window.easyChance = Math.random();
       window.easyValues = that.ArrowValues();
       if (window.easyChance < 0.85) {
-        const arrow = new Arrow(window.easyValues[0], that.arrowInitY, window.easyValues[2], window.easyValues[1], 5, 1)
+        const arrow = new Arrow(window.easyValues[0], that.arrowInitY, window.easyValues[2], window.easyValues[1], that.speed, 1)
         that.easyArray.push(arrow);
       }
       if (that.difficulty === 'hard') {
         if (window.easyChance < 0.20) {
-          const arrowM = new Arrow(window.easyValues[3], that.arrowInitY, window.easyValues[5], window.easyValues[4], 5, 1)
+          const arrowM = new Arrow(window.easyValues[3], that.arrowInitY, window.easyValues[5], window.easyValues[4], that.speed, 1)
           that.mediumArray.push(arrowM);
         }
       }
       /// GENERATE PLAYER TWO ARROWS BELOW
       if (playerAmount === 2) {
         if (window.easyChance < 0.85) {
-          const arrow2 = new Arrow(window.easyValues[0], that.arrowInitY, window.easyValues[2], window.easyValues[1], 5, 2)
+          const arrow2 = new Arrow(window.easyValues[0], that.arrowInitY, window.easyValues[2], window.easyValues[1], that.speed, 2)
           that.easyArray2.push(arrow2);
         }
         if (that.difficulty === 'hard') {
           if (window.easyChance < 0.20) {
-            const arrowM2 = new Arrow(window.easyValues[3], that.arrowInitY, window.easyValues[5], window.easyValues[4], 5, 2)
+            const arrowM2 = new Arrow(window.easyValues[3], that.arrowInitY, window.easyValues[5], window.easyValues[4], that.speed, 2)
             that.mediumArray2.push(arrowM2);
           }
         }
@@ -214,13 +221,13 @@ class Game {
       window.chance = Math.random();
       window.values = that.ArrowValues();
       if (window.chance < 0.25) {
-        const arrow = new Arrow(window.values[0], that.arrowInitY, window.values[2], window.values[1], 5, 1)
+        const arrow = new Arrow(window.values[0], that.arrowInitY, window.values[2], window.values[1], that.speed, 1)
         that.hardArray.push(arrow);
       }
       /// do the same for PLAYER 2
       if (playerAmount === 2) {
         if (window.chance < 0.25) {
-          const arrow2 = new Arrow(window.values[0], that.arrowInitY, window.values[2], window.values[1], 5, 2)
+          const arrow2 = new Arrow(window.values[0], that.arrowInitY, window.values[2], window.values[1], that.speed, 2)
           that.hardArray2.push(arrow2);
         }
       }
@@ -550,36 +557,7 @@ class Game {
         }
     }
   }
-  checkStreak(){
-    if (this.streak === 10) {
-      $('#my-canvas').css('box-shadow','0px 0px 10px 10px blue')
-    } else if (this.streak === 20) {
-      $('#my-canvas').css('box-shadow','0px 0px 10px 10px orange')
-    } else if (this.streak === 30) {
-      $('#my-canvas').css('box-shadow','0px 0px 10px 10px green')
-    } else if (this.streak === 40) {
-      $('#my-canvas').css('box-shadow','0px 0px 10px 10px purple')
-    } else if (this.streak === 50) {
-      $('#my-canvas').css('box-shadow','0px 0px 10px 10px red')
-    } else if (this.streak < 10) {
-      $('#my-canvas').css('box-shadow','0px 0px 0px 0px black')
-    }
-    if (this.streak2 === 10) {
-      $('#my-canvas2').css('box-shadow','0px 0px 10px 10px blue')
-    } else if (this.streak2 === 20) {
-      $('#my-canvas2').css('box-shadow','0px 0px 10px 10px orange')
-    } else if (this.streak2 === 30) {
-      $('#my-canvas2').css('box-shadow','0px 0px 10px 10px green')
-    } else if (this.streak2 === 40) {
-      $('#my-canvas2').css('box-shadow','0px 0px 10px 10px purple')
-    } else if (this.streak2 === 50) {
-      $('#my-canvas2').css('box-shadow','0px 0px 10px 10px red')
-    } else if (this.streak2 < 10) {
-      $('#my-canvas2').css('box-shadow','0px 0px 0px 0px black')
-    }
-  }
   check() {
-    this.checkStreak();
     this.checkEasy();
     this.checkMedium();
     this.checkHard();
@@ -605,25 +583,28 @@ class Game {
   restartSongFaster() {
     $('.game').css('display', 'inline-block')
     $('.results').css('display', 'none')
-    this.restartState = 'on';
-    this.endSong();
-    this.score = 0;
-    this.score2 = 0;
-    updateScore();
-    that.gameStart();
+    const that = this;
+    setTimeout(function(){
+      that.score = 0;
+      that.score2 = 0;
+      that.updateScore();
+    }, 1000)
+    this.gameStart();
   }
   endSong() {
-    console.log('endingSong');
     clearInterval(window.easyArrowsGenerator);
     clearInterval(window.hardArrowsGenerator);
     // clearInterval(window.easyArrowsGenerator2);
     // clearInterval(window.hardArrowsGenerator2);
-    window.audio.pause();
-    window.audio.currentTime = 0;
-    if (this.restartState === 'off'){
-      this.endGame();
+    const that = this;
+    setTimeout(function() {
+      window.audio.pause();
+      window.audio.currentTime = 0;
+      if (that.restartState === 'off') {
+        that.endGame();
+      }
+    }, 3000)
     }
-  }
   endGame(){
     $('.game').css('display', 'none')
     $('.results').css('display', 'inline-block')

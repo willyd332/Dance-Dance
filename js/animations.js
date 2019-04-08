@@ -8,16 +8,34 @@ const leftEmpty = document.getElementById("left-arrow-E");
 const upEmpty = document.getElementById("up-arrow-E");
 const downEmpty = document.getElementById("down-arrow-E");
 
-const makeBox = () => {
-  ctx.drawImage(rightEmpty, (canvas.width * .75 + canvas.width / 16), 620, 70, 70);
-  ctx.drawImage(leftEmpty, (0 + canvas.width / 16), 620, 70, 70);
-  ctx.drawImage(upEmpty, (canvas.width / 2 + canvas.width / 16), 620, 70, 70);
-  ctx.drawImage(downEmpty, (canvas.width / 4 + canvas.width / 16), 620, 70, 70);
+const rightEmptyx = document.getElementById("right-arrow-x");
+const leftEmptyx = document.getElementById("left-arrow-x");
+const upEmptyx = document.getElementById("up-arrow-x");
+const downEmptyx = document.getElementById("down-arrow-x");
 
-  ctx2.drawImage(rightEmpty, (canvas.width * .75 + canvas.width / 16), 620, 70, 70);
-  ctx2.drawImage(leftEmpty, (0 + canvas.width / 16), 620, 70, 70);
-  ctx2.drawImage(upEmpty, (canvas.width / 2 + canvas.width / 16), 620, 70, 70);
-  ctx2.drawImage(downEmpty, (canvas.width / 4 + canvas.width / 16), 620, 70, 70);
+let rightA = rightEmpty;
+let leftA = leftEmpty;
+let upA = upEmpty;
+let downA = downEmpty
+
+let rightA2 = rightEmpty;
+let leftA2 = leftEmpty;
+let upA2 = upEmpty;
+let downA2 = downEmpty
+
+
+
+
+const makeBox = () => {
+  ctx.drawImage(rightA, (canvas.width * .75 + canvas.width / 16), 620, 70, 70);
+  ctx.drawImage(leftA, (0 + canvas.width / 16), 620, 70, 70);
+  ctx.drawImage(upA, (canvas.width / 2 + canvas.width / 16), 620, 70, 70);
+  ctx.drawImage(downA, (canvas.width / 4 + canvas.width / 16), 620, 70, 70);
+
+  ctx2.drawImage(rightA2, (canvas.width * .75 + canvas.width / 16), 620, 70, 70);
+  ctx2.drawImage(leftA2, (0 + canvas.width / 16), 620, 70, 70);
+  ctx2.drawImage(upA2, (canvas.width / 2 + canvas.width / 16), 620, 70, 70);
+  ctx2.drawImage(downA2, (canvas.width / 4 + canvas.width / 16), 620, 70, 70);
   // ctx.beginPath()
   // ctx.rect(0, 620, canvas.width, 50);
   // ctx.fillStyle = 'black';
@@ -32,8 +50,8 @@ const makeBox = () => {
 makeBox();
 
 const updateScore = () => {
-  $('#score').text(window.game.score)
-  $('#score2').text(window.game.score2)
+  $('.score1').text(window.game.score)
+  $('.score2').text(window.game.score2)
 }
 
 const animateEverything = () => {

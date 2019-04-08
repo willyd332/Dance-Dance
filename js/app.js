@@ -4,6 +4,39 @@ if ([32, 37, 38, 39, 40, 68, 65, 87, 83].indexOf(e.keyCode) > -1) {
 }
 });
 
+// mouse over
+
+window.audioCrab = new Audio('crabrave.mp3'); // song should be filepath
+window.audioCrab.volume = .2;
+$('#crabrave').mouseenter(function(){
+  window.audioCrab.play();
+})
+window.audioRuss = new Audio('rasputin.mp3'); // song should be filepath
+window.audioRuss.volume = .5;
+$('#rasputin').mouseenter(function(){
+  window.audioRuss.play();
+})
+window.audioEuro = new Audio('SUPEREUROBEAT.mp3'); // song should be filepath
+window.audioEuro.volume = .3;
+$('#eurobeat').mouseenter(function(){
+  window.audioEuro.play();
+})
+
+// mouse exit
+
+$('#crabrave').mouseout(function(){
+  window.audioCrab.pause();
+})
+$('#rasputin').mouseout(function(){
+  window.audioRuss.pause();
+})
+$('#eurobeat').mouseout(function(){
+  window.audioEuro.pause();
+})
+
+
+
+
 let rightKey = "up";
 let leftKey = "up";
 let upKey = "up";
@@ -233,15 +266,15 @@ $('#back-to-player-selection').on('click', function() {
 
 $('#rasputin').on('click', function() {
   $('.song-selection').css('display', 'none');
-  window.game = new Game(127, 'rasputin.mp3', 236000, -30, difficulty, 27);
+  window.game = new Game(127, 'rasputin.mp3', 236000, -30, difficulty, 27, 8);
 })
 $('#crabrave').on('click', function() {
   $('.song-selection').css('display', 'none');
-  window.game = new Game(125, 'crabrave.mp3', 124000, -20, difficulty, 27);
+  window.game = new Game(125, 'crabrave.mp3', 124000, -20, difficulty, 27, 5);
 })
 $('#eurobeat').on('click', function() {
   $('.song-selection').css('display', 'none');
-  window.game = new Game(154, 'SUPEREUROBEAT.mp3', 96500, -60, difficulty, 0);
+  window.game = new Game(154, 'SUPEREUROBEAT.mp3', 96500, -60, difficulty, 0, 10);
 })
 $('#back-to-difficulty-selection').on('click', function() {
   $('.song-selection').css('display', 'none')
