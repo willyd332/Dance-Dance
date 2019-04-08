@@ -1,23 +1,105 @@
+@font-face {
+    font-family: SteadfastOblique;
+    src: url('SteadfastOblique.otf');
+}
+
+body {
+  font-family: 'SteadfastOblique';
+}
+h2 {
+  font-family: 'SteadfastOblique';
+  font-size: 50px;
+  font-weight: bold;
+}
+
 canvas {
   background-color: red;
 }
+
 .game {
+  display: none;
   height: 750px;
   width: 100%;
   position: absolute;
   background-color: purple;
 }
 
+button {
+  text-align: center;
+  margin: 20vh auto;
+  font-family: SteadfastOblique;
+  font-size: 10vh;
+  font-weight: bold;
+  width: 80%;
+  height: 50%;
+  display: block;
+}
+
+.difficulty {
+  margin-left: 2.3%;
+  font-family: SteadfastOblique;
+  font-size: 10vh;
+  width: 30%;
+  height: 50%;
+  display: inline-block;
+}
+
+.song {
+  margin: 5vh auto;
+  font-family: SteadfastOblique;
+  font-size: 10vh;
+  width: 80%;
+  height: 50%;
+  display: block;
+}
+
+.restart {
+  margin-top: 5px;
+  margin-bottom: 10px;
+  font-size: 30px;
+  height: 45%;
+}
+
+.main-menu {
+  margin-top: 10%;
+  margin-bottom: 10px;
+  font-size: 30px;
+  height: 45%;
+}
+
+.player-selection {
+  width: 100%;
+  height: 100%;
+}
+
+.song-selection {
+  width: 100%;
+  height: 100%;
+  display: none;
+}
+span {
+  font-family: Delicious; src: url('SteadfastOblique.otf');
+}
+.difficulty-selection {
+  width: 100%;
+  height: 100%;
+  display: none;
+}
+
+.score {
+  writing-mode: vertical-rl;
+}
+
 .arrow {
   width: 80px;
   height: 80px;
-
 }
 
 .canvas-box {
   display: inline-block;
   background-color: blue;
 }
+
 .score {
   vertical-align: top;
   display: inline-block;
@@ -25,7 +107,9 @@ canvas {
   width: 8%;
   height: 750px;
 }
-.game-menu{
+
+
+.game-menu {
   vertical-align: top;
   width: 15%;
   height: 750px;
