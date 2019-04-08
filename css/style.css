@@ -1,43 +1,64 @@
-@font-face {
-    font-family: SteadfastOblique;
-    src: url('SteadfastOblique.otf');
-}
 
 body {
-  font-family: 'SteadfastOblique';
+  font-family: 'Russo One', sans-serif;
+  background-image: url('../images/rainbow.gif');
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 h2 {
-  font-family: 'SteadfastOblique';
+  font-family: 'Russo One', sans-serif;
   font-size: 50px;
   font-weight: bold;
+  text-align: center;
+  text-shadow: 5px 5px black;
+  padding: 10px;
+  color: white;
 }
 
-canvas {
-  background-color: red;
+
+h1 {
+  font-family: 'Russo One', sans-serif;
+  font-size: 100px;
+  font-weight: bold;
+  text-align: center;
+  text-shadow: 5px 5px violet;
+  color: white;
 }
+
+
 
 .game {
+  position: absolute;
   display: none;
-  height: 750px;
+  height: 100%;
   width: 100%;
   position: absolute;
-  background-color: purple;
+  background-image: url('../images/background.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: left;
 }
 
 button {
+  background-image: url('../images/banner.gif');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  text-shadow: 5px 5px violet;
   text-align: center;
-  margin: 20vh auto;
-  font-family: SteadfastOblique;
+  margin: 10vh auto;
+  font-family: 'Russo One', sans-serif;
   font-size: 10vh;
   font-weight: bold;
-  width: 80%;
+  width: 60%;
   height: 50%;
   display: block;
 }
 
 .difficulty {
+  margin-top: 15%;
   margin-left: 2.3%;
-  font-family: SteadfastOblique;
+  font-family: 'Russo One', sans-serif;
   font-size: 10vh;
   width: 30%;
   height: 50%;
@@ -45,8 +66,13 @@ button {
 }
 
 .song {
+  color: white;
+  background-image: url('../images/banner2.jpg');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
   margin: 5vh auto;
-  font-family: SteadfastOblique;
+  font-family: 'Russo One', sans-serif;
   font-size: 10vh;
   width: 80%;
   height: 50%;
@@ -54,17 +80,47 @@ button {
 }
 
 .restart {
+  background-image: none;
+  background-color: Transparent;
+  background-repeat:no-repeat;
+  border: none;
+  cursor:pointer;
+  overflow: hidden;
+  outline:none;
+  color: white;
   margin-top: 5px;
   margin-bottom: 10px;
-  font-size: 30px;
+  font-size: 40px;
   height: 45%;
 }
 
+.restart:hover {
+  box-shadow: 0px 0px 10px 10px violet;
+}
+
+#rsttxt {
+  writing-mode: vertical-rl;
+  text-orientation: upright;
+}
+
 .main-menu {
+  text-align: center;
+  background-image: none;
+  background-color: Transparent;
+  background-repeat:no-repeat;
+  border: none;
+  cursor:pointer;
+  /* overflow: hidden; */
+  outline:none;
+  color: white;
   margin-top: 10%;
   margin-bottom: 10px;
-  font-size: 30px;
+  font-size: 40px;
   height: 45%;
+}
+
+.main-menu:hover {
+  box-shadow: 0px 0px 10px 10px violet;
 }
 
 .player-selection {
@@ -78,7 +134,7 @@ button {
   display: none;
 }
 span {
-  font-family: Delicious; src: url('SteadfastOblique.otf');
+  font-family: 'Russo One', sans-serif;
 }
 .difficulty-selection {
   width: 100%;
@@ -86,8 +142,13 @@ span {
   display: none;
 }
 
+.back {
+  margin-top: 10%
+}
+
 .score {
   writing-mode: vertical-rl;
+  text-orientation: upright;
 }
 
 .arrow {
@@ -97,13 +158,11 @@ span {
 
 .canvas-box {
   display: inline-block;
-  background-color: blue;
 }
 
 .score {
   vertical-align: top;
   display: inline-block;
-  background-color: green;
   width: 8%;
   height: 750px;
 }
@@ -114,9 +173,18 @@ span {
   width: 15%;
   height: 750px;
   display: inline-block;
-  background-color: orange;
 }
 
 .arrow {
   display: none;
+}
+
+.faster {
+  width: 500px;
+}
+
+.results {
+  display: none;
+  width: 100%;
+  height: 100%;
 }

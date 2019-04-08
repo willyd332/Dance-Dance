@@ -194,6 +194,10 @@ $('.main-menu').on('click', function() {
   window.location.reload()
 })
 
+$('.faster').on('click', function() {
+  window.game.restartSongFaster();
+})
+
 
 
 $('#one-player').on('click', function() {
@@ -233,7 +237,7 @@ $('#rasputin').on('click', function() {
 })
 $('#crabrave').on('click', function() {
   $('.song-selection').css('display', 'none');
-  window.game = new Game(125, 'crabrave.mp3', 124000, -10, difficulty, 27);
+  window.game = new Game(125, 'crabrave.mp3', 124000, -20, difficulty, 27);
 })
 $('#eurobeat').on('click', function() {
   $('.song-selection').css('display', 'none');

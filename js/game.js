@@ -34,6 +34,7 @@ class Game {
     this.streak2 = 0;
     this.longestStreak = 0;
     this.longestStreak2 = 0;
+    this.restartState = '';
     this.waitTime = waitTime;
     this.gameBuild();
     this.gameStart();
@@ -59,6 +60,7 @@ class Game {
       that.endSong();
     }, that.length)
     setTimeout(function() {
+      that.restartState = 'off';
       that.generateArrows();
       liveGameListeners();
     }, (that.msPerBeat * this.waitTime))
@@ -548,13 +550,46 @@ class Game {
         }
     }
   }
+  checkStreak(){
+    if (this.streak === 10) {
+      $('#my-canvas').css('box-shadow','0px 0px 10px 10px blue')
+    } else if (this.streak === 20) {
+      $('#my-canvas').css('box-shadow','0px 0px 10px 10px orange')
+    } else if (this.streak === 30) {
+      $('#my-canvas').css('box-shadow','0px 0px 10px 10px green')
+    } else if (this.streak === 40) {
+      $('#my-canvas').css('box-shadow','0px 0px 10px 10px purple')
+    } else if (this.streak === 50) {
+      $('#my-canvas').css('box-shadow','0px 0px 10px 10px red')
+    } else if (this.streak < 10) {
+      $('#my-canvas').css('box-shadow','0px 0px 0px 0px black')
+    }
+    if (this.streak2 === 10) {
+      $('#my-canvas2').css('box-shadow','0px 0px 10px 10px blue')
+    } else if (this.streak2 === 20) {
+      $('#my-canvas2').css('box-shadow','0px 0px 10px 10px orange')
+    } else if (this.streak2 === 30) {
+      $('#my-canvas2').css('box-shadow','0px 0px 10px 10px green')
+    } else if (this.streak2 === 40) {
+      $('#my-canvas2').css('box-shadow','0px 0px 10px 10px purple')
+    } else if (this.streak2 === 50) {
+      $('#my-canvas2').css('box-shadow','0px 0px 10px 10px red')
+    } else if (this.streak2 < 10) {
+      $('#my-canvas2').css('box-shadow','0px 0px 0px 0px black')
+    }
+  }
   check() {
+    this.checkStreak();
     this.checkEasy();
     this.checkMedium();
     this.checkHard();
     this.missclickPointReducer()
   }
   restartSong() {
+    if (this.restartState === 'off'){
+    $('.game').css('display', 'inline-block')
+    $('.results').css('display', 'none')
+    this.restartState = 'on';
     this.endSong();
     this.score = 0;
     this.score2 = 0;
@@ -566,6 +601,17 @@ class Game {
       that.gameStart();
     }, 2000)
   }
+  }
+  restartSongFaster() {
+    $('.game').css('display', 'inline-block')
+    $('.results').css('display', 'none')
+    this.restartState = 'on';
+    this.endSong();
+    this.score = 0;
+    this.score2 = 0;
+    updateScore();
+    that.gameStart();
+  }
   endSong() {
     console.log('endingSong');
     clearInterval(window.easyArrowsGenerator);
@@ -574,6 +620,13 @@ class Game {
     // clearInterval(window.hardArrowsGenerator2);
     window.audio.pause();
     window.audio.currentTime = 0;
+    if (this.restartState === 'off'){
+      this.endGame();
+    }
+  }
+  endGame(){
+    $('.game').css('display', 'none')
+    $('.results').css('display', 'inline-block')
   }
 }
 

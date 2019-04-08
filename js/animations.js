@@ -3,16 +3,30 @@ const ctx = canvas.getContext('2d');
 const canvas2 = document.getElementById('my-canvas2');
 const ctx2 = canvas2.getContext('2d');
 
-const makeBox = () => {
-  ctx.beginPath()
-  ctx.rect(0, 620, canvas.width, 50);
-  ctx.fillStyle = 'black';
-  ctx.fill();
+const rightEmpty = document.getElementById("right-arrow-E");
+const leftEmpty = document.getElementById("left-arrow-E");
+const upEmpty = document.getElementById("up-arrow-E");
+const downEmpty = document.getElementById("down-arrow-E");
 
-  ctx2.beginPath()
-  ctx2.rect(0, 620, canvas.width, 50);
-  ctx2.fillStyle = 'black';
-  ctx2.fill();
+const makeBox = () => {
+  ctx.drawImage(rightEmpty, (canvas.width * .75 + canvas.width / 16), 620, 70, 70);
+  ctx.drawImage(leftEmpty, (0 + canvas.width / 16), 620, 70, 70);
+  ctx.drawImage(upEmpty, (canvas.width / 2 + canvas.width / 16), 620, 70, 70);
+  ctx.drawImage(downEmpty, (canvas.width / 4 + canvas.width / 16), 620, 70, 70);
+
+  ctx2.drawImage(rightEmpty, (canvas.width * .75 + canvas.width / 16), 620, 70, 70);
+  ctx2.drawImage(leftEmpty, (0 + canvas.width / 16), 620, 70, 70);
+  ctx2.drawImage(upEmpty, (canvas.width / 2 + canvas.width / 16), 620, 70, 70);
+  ctx2.drawImage(downEmpty, (canvas.width / 4 + canvas.width / 16), 620, 70, 70);
+  // ctx.beginPath()
+  // ctx.rect(0, 620, canvas.width, 50);
+  // ctx.fillStyle = 'black';
+  // ctx.fill();
+  //
+  // ctx2.beginPath()
+  // ctx2.rect(0, 620, canvas.width, 50);
+  // ctx2.fillStyle = 'black';
+  // ctx2.fill();
   // at some point have it pulsate to the beat
 }
 makeBox();
