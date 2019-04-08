@@ -19,33 +19,48 @@ makeBox();
 
 const animateEverything = () => {
   makeBox();
+  moveArrows();
   animateArrows();
 }
 
-
-const animateArrows = () => {
+const moveArrows = () => {
   if (game.easyArray[0]){
   game.easyArray.forEach(function(i){i.move()})
-  game.easyArray.forEach(function(i){i.draw()})
-}
-  if (game.mediumArray[0]){
-  game.mediumArray.forEach(function(i){i.move()})
-  game.mediumArray.forEach(function(i){i.draw()})
-}
-  if (game.hardArray[0]){
-  game.hardArray.forEach(function(i){i.move()})
-  game.hardArray.forEach(function(i){i.draw()})
 }
 if (game.easyArray2[0]){
 game.easyArray2.forEach(function(i){i.move()})
-game.easyArray2.forEach(function(i){i.draw()})
+}
+  if (game.mediumArray[0]){
+  game.mediumArray.forEach(function(i){i.move()})
 }
 if (game.mediumArray2[0]){
 game.mediumArray2.forEach(function(i){i.move()})
-game.mediumArray2.forEach(function(i){i.draw()})
+}
+  if (game.hardArray[0]){
+  game.hardArray.forEach(function(i){i.move()})
 }
 if (game.hardArray2[0]){
 game.hardArray2.forEach(function(i){i.move()})
+}
+}
+
+const animateArrows = () => {
+  if (game.easyArray[0]){
+  game.easyArray.forEach(function(i){i.draw()})
+}
+if (game.easyArray2[0]){
+game.easyArray2.forEach(function(i){i.draw()})
+}
+  if (game.mediumArray[0]){
+  game.mediumArray.forEach(function(i){i.draw()})
+}
+if (game.mediumArray2[0]){
+game.mediumArray2.forEach(function(i){i.draw()})
+}
+  if (game.hardArray[0]){
+  game.hardArray.forEach(function(i){i.draw()})
+}
+if (game.hardArray2[0]){
 game.hardArray2.forEach(function(i){i.draw()})
 }
   game.check();

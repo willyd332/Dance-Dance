@@ -169,6 +169,12 @@ const downKeyListener2 = () => {
   })
 }
 
+const restartListener = () => {
+  $('.restart').on('click', function(){
+    game.restartSong()
+  })
+}
+
 const liveGameListeners = () => {
   rightKeyListener();
   downKeyListener();
@@ -178,4 +184,28 @@ const liveGameListeners = () => {
   downKeyListener2();
   upKeyListener2();
   leftKeyListener2();
+  restartListener();
 }
+
+let difficulty = null;
+let playerAmount = 0;
+
+
+$('main-menu').on('click', function(){
+  window.location.reload()
+})
+
+
+/*
+bpm, song, length, arrowInitY, difficulty, waitTime
+
+RASPUTIN:
+var game = new Game(127,'rasputin.mp3',234000,-50,'medium', 27)
+
+CRAB RAVE:
+var game = new Game(125,'crabrave.mp3',124000,-10,'medium', 27)
+
+SUPER EUROBEAT:
+var game = new Game(154,'SUPEREUROBEAT.mp3', 96500, -60, difficulty, 0)
+
+*/

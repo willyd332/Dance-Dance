@@ -14,13 +14,13 @@ class Arrow {
     this.img = img;
     this.direction = direction;
     this.speed = speed;
-    this.size = 50;
+    this.size = 70;
     this.player = player;
   }
   draw(){
     if (this.player === 1){
     makeArrow1(this.img,this.x,this.y,this.size)
-  } else {
+  } else if (this.player === 2){
     makeArrow2(this.img,this.x,this.y,this.size)
   }
   };
