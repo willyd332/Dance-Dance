@@ -37,6 +37,7 @@ class Game {
     this.restartState = 'off';
     this.waitTime = waitTime;
     this.speed = speed;
+    this.generating = false;
     this.gameBuild();
     this.gameStart();
 
@@ -63,13 +64,15 @@ class Game {
   gameStart() {
     const that = this;
     this.playSong();
+    animate2();
     window.endingSong = setTimeout(function() {
       that.endSong();
     }, that.length)
     setTimeout(function() {
       that.restartState = 'off';
       that.generateArrows();
-      liveGameListeners();
+      that.generating = true;
+      window.cancelAnimationFrame(animationLoop2);
     }, (that.msPerBeat * this.waitTime))
 
 
@@ -471,6 +474,7 @@ class Game {
     }
   }
   missclickPointReducer() {
+    if (this.generating === true){
     if (this.mediumArray.length > 0 && this.easyArray.length > 0 && this.hardArray.length > 0) {
       if (this.mediumArray[0].y < 560) {
         if (this.hardArray[0].y < 560) {
@@ -557,6 +561,7 @@ class Game {
         }
     }
   }
+}
   check() {
     this.checkEasy();
     this.checkMedium();
@@ -568,7 +573,9 @@ class Game {
     $('.game').css('display', 'inline-block')
     $('.results').css('display', 'none')
     this.restartState = 'on';
+    if (this.generating === true){
     this.endSong();
+    }
     this.score = 0;
     this.score2 = 0;
     updateScore();
@@ -592,6 +599,7 @@ class Game {
     this.gameStart();
   }
   endSong() {
+    this.generating = false;
     clearInterval(window.easyArrowsGenerator);
     clearInterval(window.hardArrowsGenerator);
     // clearInterval(window.easyArrowsGenerator2);

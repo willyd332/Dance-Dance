@@ -7,17 +7,17 @@ if ([32, 37, 38, 39, 40, 68, 65, 87, 83].indexOf(e.keyCode) > -1) {
 // mouse over
 
 window.audioCrab = new Audio('crabrave.mp3'); // song should be filepath
-window.audioCrab.volume = .2;
+window.audioCrab.volume = .1;
 $('#crabrave').mouseenter(function(){
   window.audioCrab.play();
 })
 window.audioRuss = new Audio('rasputin.mp3'); // song should be filepath
-window.audioRuss.volume = .5;
+window.audioRuss.volume = .4;
 $('#rasputin').mouseenter(function(){
   window.audioRuss.play();
 })
 window.audioEuro = new Audio('SUPEREUROBEAT.mp3'); // song should be filepath
-window.audioEuro.volume = .3;
+window.audioEuro.volume = .2;
 $('#eurobeat').mouseenter(function(){
   window.audioEuro.play();
 })
@@ -281,6 +281,7 @@ $('#back-to-difficulty-selection').on('click', function() {
   $('.difficulty-selection').css('display', 'inline-block')
 })
 
+liveGameListeners();
 
 /*
 bpm, song, length, arrowInitY, difficulty, waitTime
