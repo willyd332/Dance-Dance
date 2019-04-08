@@ -1,36 +1,36 @@
 window.addEventListener("keydown", function(e) {
-if ([32, 37, 38, 39, 40, 68, 65, 87, 83].indexOf(e.keyCode) > -1) {
-  e.preventDefault();
-}
+  if ([32, 37, 38, 39, 40, 68, 65, 87, 83].indexOf(e.keyCode) > -1) {
+    e.preventDefault();
+  }
 });
 
 // mouse over
 
 window.audioCrab = new Audio('crabrave.mp3'); // song should be filepath
 window.audioCrab.volume = .1;
-$('#crabrave').mouseenter(function(){
+$('#crabrave').mouseenter(function() {
   window.audioCrab.play();
 })
-window.audioRuss = new Audio('rasputin.mp3'); // song should be filepath
+window.audioRuss = new Audio('Miracles.mp3'); // song should be filepath
 window.audioRuss.volume = .4;
-$('#rasputin').mouseenter(function(){
+$('#miracle').mouseenter(function() {
   window.audioRuss.play();
 })
 window.audioEuro = new Audio('SUPEREUROBEAT.mp3'); // song should be filepath
 window.audioEuro.volume = .2;
-$('#eurobeat').mouseenter(function(){
+$('#eurobeat').mouseenter(function() {
   window.audioEuro.play();
 })
 
 // mouse exit
 
-$('#crabrave').mouseout(function(){
+$('#crabrave').mouseout(function() {
   window.audioCrab.pause();
 })
-$('#rasputin').mouseout(function(){
+$('#miracle').mouseout(function() {
   window.audioRuss.pause();
 })
-$('#eurobeat').mouseout(function(){
+$('#eurobeat').mouseout(function() {
   window.audioEuro.pause();
 })
 
@@ -222,6 +222,12 @@ const liveGameListeners = () => {
 let difficulty = null;
 let playerAmount = 0;
 
+window.scratchaudio = new Audio('buttonscratch.mp3');
+
+$('button').on('click', function(){
+  window.scratchaudio.volume = .5;
+  window.scratchaudio.play();
+})
 
 $('.main-menu').on('click', function() {
   window.location.reload()
@@ -231,6 +237,18 @@ $('.faster').on('click', function() {
   window.game.restartSongFaster();
 })
 
+$('#start-game').on('click', function(){
+  window.backaudio = new Audio('backgroundmusic.mp3'); // song should be filepath
+  window.backaudio.volume = .5;
+  window.backaudio.play();
+
+  window.titleaudio = new Audio('dancedancerevolution.mp3'); // song should be filepath
+  window.titleaudio.volume = .5;
+  window.titleaudio.play();
+
+  $('.title').css('display', 'none')
+  $('.player-selection').css('display', 'inline-block')
+})
 
 
 $('#one-player').on('click', function() {
@@ -244,29 +262,38 @@ $('#two-player').on('click', function() {
   $('.difficulty-selection').css('display', 'inline-block')
 })
 
+$('.difficulty').on('click', function(){
+  window.bestshot = new Audio('bestshot.mp3'); // song should be filepath
+  window.bestshot.volume = .6;
+  window.bestshot.play();
+})
+
 $('#easy').on('click', function() {
   difficulty = 'easy';
   $('.difficulty-selection').css('display', 'none')
   $('.song-selection').css('display', 'inline-block')
+  window.backaudio.pause();
 })
 $('#medium').on('click', function() {
   difficulty = 'medium';
   $('.difficulty-selection').css('display', 'none')
   $('.song-selection').css('display', 'inline-block')
+  window.backaudio.pause();
 })
 $('#hard').on('click', function() {
   difficulty = 'hard';
   $('.difficulty-selection').css('display', 'none')
   $('.song-selection').css('display', 'inline-block')
+  window.backaudio.pause();
 })
 $('#back-to-player-selection').on('click', function() {
   $('.difficulty-selection').css('display', 'none')
   $('.player-selection').css('display', 'inline-block')
 })
 
-$('#rasputin').on('click', function() {
+$('#miracle').on('click', function() {
   $('.song-selection').css('display', 'none');
-  window.game = new Game(127, 'rasputin.mp3', 236000, -30, difficulty, 27, 8);
+  window.game = new Game(126, 'Miracles.mp3', 200000, -75, difficulty, 17, 8);
 })
 $('#crabrave').on('click', function() {
   $('.song-selection').css('display', 'none');
@@ -279,6 +306,12 @@ $('#eurobeat').on('click', function() {
 $('#back-to-difficulty-selection').on('click', function() {
   $('.song-selection').css('display', 'none')
   $('.difficulty-selection').css('display', 'inline-block')
+  window.backaudio.play();
+})
+$('.song').on('click', function(){
+  window.goodsongaudio = new Audio('okay.mp3'); // song should be filepath
+  window.goodsongaudio.volume = .7;
+  window.goodsongaudio.play();
 })
 
 liveGameListeners();
@@ -286,8 +319,7 @@ liveGameListeners();
 /*
 bpm, song, length, arrowInitY, difficulty, waitTime
 
-RASPUTIN:
-var game = new Game(127,'rasputin.mp3',234000,-50,'medium', 27)
+Miracles:
 
 CRAB RAVE:
 var game = new Game(125,'crabrave.mp3',124000,-10,'medium', 27)

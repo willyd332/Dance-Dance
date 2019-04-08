@@ -50,7 +50,7 @@ class Game {
   playSong() {
     window.audio = new Audio(this.song); // song should be filepath
     window.audio.volume = .7;
-    if (this.song === 'rasputin.mp3'){
+    if (this.song === 'miracle.mp3') {
       window.audio.volume = 1;
     }
     window.audio.pause();
@@ -474,9 +474,24 @@ class Game {
     }
   }
   missclickPointReducer() {
-    if (this.generating === true){
-    if (this.mediumArray.length > 0 && this.easyArray.length > 0 && this.hardArray.length > 0) {
-      if (this.mediumArray[0].y < 560) {
+    if (this.generating === true) {
+      if (this.mediumArray.length > 0 && this.easyArray.length > 0 && this.hardArray.length > 0) {
+        if (this.mediumArray[0].y < 560) {
+          if (this.hardArray[0].y < 560) {
+            if (this.easyArray[0].y < 560) {
+              if (rightKey === 'down' || leftKey === 'down' || upKey === 'down' || downKey === 'down') {
+                this.score -= 8;
+                updateScore();
+                if (this.streak > this.longestStreak) {
+                  this.longestStreak = this.streak;
+                }
+                this.streak = 0;
+              }
+            }
+          }
+        }
+      }
+      if (this.easyArray.length > 0 && this.hardArray.length > 0) {
         if (this.hardArray[0].y < 560) {
           if (this.easyArray[0].y < 560) {
             if (rightKey === 'down' || leftKey === 'down' || upKey === 'down' || downKey === 'down') {
@@ -490,36 +505,36 @@ class Game {
           }
         }
       }
-    }
-    if (this.easyArray.length > 0 && this.hardArray.length > 0) {
-        if (this.hardArray[0].y < 560) {
-          if (this.easyArray[0].y < 560) {
-            if (rightKey === 'down' || leftKey === 'down' || upKey === 'down' || downKey === 'down') {
-              this.score -= 8;
-              updateScore();
-              if (this.streak > this.longestStreak) {
-                this.longestStreak = this.streak;
-              }
-              this.streak = 0;
+      if (this.easyArray.length > 0) {
+        if (this.easyArray[0].y < 560) {
+          if (rightKey === 'down' || leftKey === 'down' || upKey === 'down' || downKey === 'down') {
+            this.score -= 8;
+            updateScore();
+            if (this.streak > this.longestStreak) {
+              this.longestStreak = this.streak;
+            }
+            this.streak = 0;
           }
         }
       }
-    }
-    if (this.easyArray.length > 0) {
-          if (this.easyArray[0].y < 560) {
-            if (rightKey === 'down' || leftKey === 'down' || upKey === 'down' || downKey === 'down') {
-              this.score -= 8;
-              updateScore();
-              if (this.streak > this.longestStreak) {
-                this.longestStreak = this.streak;
+      // do the same for Player2
+      if (this.mediumArray2.length > 0 && this.easyArray2.length > 0 && this.hardArray2.length > 0) {
+        if (this.mediumArray2[0].y < 560) {
+          if (this.hardArray2[0].y < 560) {
+            if (this.easyArray2[0].y < 560) {
+              if (rightKey2 === 'down' || leftKey2 === 'down' || upKey2 === 'down' || downKey2 === 'down') {
+                this.score2 -= 8;
+                updateScore();
+                if (this.streak2 > this.longestStreak2) {
+                  this.longestStreak2 = this.streak2;
+                }
+                this.streak2 = 0;
               }
-              this.streak = 0;
+            }
+          }
         }
       }
-    }
-    // do the same for Player2
-    if (this.mediumArray2.length > 0 && this.easyArray2.length > 0 && this.hardArray2.length > 0) {
-      if (this.mediumArray2[0].y < 560) {
+      if (this.easyArray2.length > 0 && this.hardArray2.length > 0) {
         if (this.hardArray2[0].y < 560) {
           if (this.easyArray2[0].y < 560) {
             if (rightKey2 === 'down' || leftKey2 === 'down' || upKey2 === 'down' || downKey2 === 'down') {
@@ -533,35 +548,20 @@ class Game {
           }
         }
       }
-    }
-    if (this.easyArray2.length > 0 && this.hardArray2.length > 0) {
-        if (this.hardArray2[0].y < 560) {
-          if (this.easyArray2[0].y < 560) {
-            if (rightKey2 === 'down' || leftKey2 === 'down' || upKey2 === 'down' || downKey2 === 'down') {
-              this.score2 -= 8;
-              updateScore();
-              if (this.streak2 > this.longestStreak2) {
-                this.longestStreak2 = this.streak2;
-              }
-              this.streak2 = 0;
+      if (this.easyArray2.length > 0) {
+        if (this.easyArray2[0].y < 560) {
+          if (rightKey2 === 'down' || leftKey2 === 'down' || upKey2 === 'down' || downKey2 === 'down') {
+            this.score2 -= 8;
+            updateScore();
+            if (this.streak2 > this.longestStreak2) {
+              this.longestStreak2 = this.streak2;
             }
+            this.streak2 = 0;
+          }
         }
       }
-    }
-    if (this.easyArray2.length > 0) {
-          if (this.easyArray2[0].y < 560) {
-            if (rightKey2 === 'down' || leftKey2 === 'down' || upKey2 === 'down' || downKey2 === 'down') {
-              this.score2 -= 8;
-              updateScore();
-              if (this.streak2 > this.longestStreak2) {
-                this.longestStreak2 = this.streak2;
-              }
-              this.streak2 = 0;
-            }
-        }
     }
   }
-}
   check() {
     this.checkEasy();
     this.checkMedium();
@@ -569,29 +569,31 @@ class Game {
     this.missclickPointReducer()
   }
   restartSong() {
-    if (this.restartState === 'off'){
-    $('.game').css('display', 'inline-block')
-    $('.results').css('display', 'none')
-    this.restartState = 'on';
-    if (this.generating === true){
-    this.endSong();
+    window.backaudio.pause();
+    if (this.restartState === 'off') {
+      $('.game').css('display', 'inline-block')
+      $('.results').css('display', 'none')
+      this.restartState = 'on';
+      if (this.generating === true) {
+        this.endSong();
+      }
+      this.score = 0;
+      this.score2 = 0;
+      updateScore();
+      const that = this;
+      clearTimeout(window.endingSong)
+      setTimeout(function() {
+        window.cancelAnimationFrame(animationLoop);
+        that.gameStart();
+      }, 2000)
     }
-    this.score = 0;
-    this.score2 = 0;
-    updateScore();
-    const that = this;
-    clearTimeout(window.endingSong)
-    setTimeout(function() {
-      window.cancelAnimationFrame(animationLoop);
-      that.gameStart();
-    }, 2000)
-  }
   }
   restartSongFaster() {
+    window.backaudio.pause();
     $('.game').css('display', 'inline-block')
     $('.results').css('display', 'none')
     const that = this;
-    setTimeout(function(){
+    setTimeout(function() {
       that.score = 0;
       that.score2 = 0;
       that.updateScore();
@@ -612,8 +614,12 @@ class Game {
         that.endGame();
       }
     }, 3000)
-    }
-  endGame(){
+  }
+  endGame() {
+    window.clapping = new Audio('Clapping.mp3'); // song should be filepath
+    window.clapping.volume = .5;
+    window.clapping.play();
+    window.backaudio.play();
     $('.game').css('display', 'none')
     $('.results').css('display', 'inline-block')
   }

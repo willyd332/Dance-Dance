@@ -27,6 +27,7 @@ h1 {
 
 
 
+
 .game {
   position: absolute;
   display: none;
@@ -40,6 +41,7 @@ h1 {
 }
 
 button {
+  border-radius: 5px 70px;
   background-image: url('../images/banner.gif');
   background-position: center;
   background-repeat: no-repeat;
@@ -87,9 +89,6 @@ button:hover {
   display: block;
 }
 
-.song:hover {
-  
-}
 
 .restart {
   background-image: none;
@@ -136,6 +135,7 @@ button:hover {
 }
 
 .player-selection {
+  display: none;
   width: 100%;
   height: 100%;
 }
@@ -193,6 +193,10 @@ span {
 
 .faster {
   width: 500px;
+}
+
+#one-player{
+  margin-top: 15%;
 }
 
 .results {

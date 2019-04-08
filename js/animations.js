@@ -25,53 +25,53 @@ let downA2 = downEmpty
 
 const arrowClicks = () => {
 
-if (rightKey === "down"){
-  rightA = rightEmptyx;
-} else if (rightKey === 'up') {
-  rightA = rightEmpty;
-}
+  if (rightKey === "down") {
+    rightA = rightEmptyx;
+  } else if (rightKey === 'up') {
+    rightA = rightEmpty;
+  }
 
-if (leftKey === "down"){
-  leftA = leftEmptyx;
-} else if (leftKey === 'up') {
-  leftA = leftEmpty;
-}
+  if (leftKey === "down") {
+    leftA = leftEmptyx;
+  } else if (leftKey === 'up') {
+    leftA = leftEmpty;
+  }
 
-if (upKey === "down"){
-  upA = upEmptyx;
-} else if(upKey === "up"){
-  upA = upEmpty;
-}
+  if (upKey === "down") {
+    upA = upEmptyx;
+  } else if (upKey === "up") {
+    upA = upEmpty;
+  }
 
-if (downKey === "down"){
-  downA = downEmptyx;
-} else if (downKey === 'up') {
-  downA = downEmpty;
-}
+  if (downKey === "down") {
+    downA = downEmptyx;
+  } else if (downKey === 'up') {
+    downA = downEmpty;
+  }
 
-if (rightKey2 === "down"){
-  rightA2 = rightEmptyx;
-} else if (rightKey2 === 'up') {
-  rightA2 = rightEmpty;
-}
+  if (rightKey2 === "down") {
+    rightA2 = rightEmptyx;
+  } else if (rightKey2 === 'up') {
+    rightA2 = rightEmpty;
+  }
 
-if (leftKey2 === "down"){
-  leftA2 = leftEmptyx;
-} else if (leftKey2 === 'up') {
-  leftA2 = leftEmpty;
-}
+  if (leftKey2 === "down") {
+    leftA2 = leftEmptyx;
+  } else if (leftKey2 === 'up') {
+    leftA2 = leftEmpty;
+  }
 
-if (upKey2 === "down"){
-  upA2 = upEmptyx;
-} else if(upKey2 === "up"){
-  upA2 = upEmpty;
-}
+  if (upKey2 === "down") {
+    upA2 = upEmptyx;
+  } else if (upKey2 === "up") {
+    upA2 = upEmpty;
+  }
 
-if (downKey2 === "down"){
-  downA2 = downEmptyx;
-} else if (downKey2 === 'up') {
-  downA2 = downEmpty;
-}
+  if (downKey2 === "down") {
+    downA2 = downEmptyx;
+  } else if (downKey2 === 'up') {
+    downA2 = downEmpty;
+  }
 
 }
 
