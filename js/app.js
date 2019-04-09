@@ -7,7 +7,7 @@ window.addEventListener("keydown", function(e) {
 setTimeout(function(){
 $('#loading').remove();
 $('#start-game').css('display','block')
-},2000)
+},3500)
 
 
 // music previews
@@ -248,6 +248,7 @@ const downKeyListener2 = () => {
   })
 }
 
+
 const restartListener = () => {
   $('.restart').on('click', function() {
     window.game.restartSong()
@@ -375,7 +376,7 @@ $('#dragostea').on('click', function() {
 
 $('#dancing').on('click', function() {
   $('.song-selection').css('display', 'none');
-  window.game = new Game(160, 'audio/dancing.mp3', 319000, -55, difficulty, 39, 15);
+  window.game = new Game(160, 'audio/dancing.mp3', 319000, -55, difficulty, 43, 15);
 })
 
 $('#gangsta').on('click', function() {
