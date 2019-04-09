@@ -62,9 +62,7 @@ class Game {
     window.endingSong = setTimeout(function() {
       that.endSong();
     }, that.length)
-    if (this.difficulty === 'easy'){
       this.speed = this.speed / 2;
-    }
     setTimeout(function() {
       that.restartState = 'off';
       that.generateArrows();
