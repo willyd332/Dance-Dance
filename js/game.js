@@ -142,7 +142,7 @@ class Game {
       if (chance < .33) {
         directionMed = 'down';
         imageMed = downArrowImg
-        XvalueMed = (canvas.width / 2);
+        XvalueMed = (canvas.width / 4);
       } else if (chance > .66) {
         directionMed = 'up';
         imageMed = upArrowImg
