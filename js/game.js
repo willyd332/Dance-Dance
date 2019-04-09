@@ -245,24 +245,40 @@ class Game {
           this.notesHit++
           this.streak++
           this.easyArray.shift();
+          if (this.streak > this.longestStreak) {
+            this.longestStreak = this.streak;
+          }
+
         } else if (this.easyArray[0].direction === 'left' && leftKey === 'down') {
           this.score += 100;
           updateScore();
           this.notesHit++
           this.streak++
           this.easyArray.shift();
+          if (this.streak > this.longestStreak) {
+            this.longestStreak = this.streak;
+          }
+
         } else if (this.easyArray[0].direction === 'down' && downKey === 'down') {
           this.score += 100;
           updateScore();
           this.notesHit++
           this.streak++
           this.easyArray.shift();
+          if (this.streak > this.longestStreak) {
+            this.longestStreak = this.streak;
+          }
+
         } else if (this.easyArray[0].direction === 'up' && upKey === 'down') {
           this.score += 100;
           updateScore();
           this.notesHit++
           this.streak++
           this.easyArray.shift();
+          if (this.streak > this.longestStreak) {
+            this.longestStreak = this.streak;
+          }
+
         }
       } else if (this.easyArray[0].y > 700) {
         this.easyArray.shift();
@@ -284,24 +300,36 @@ class Game {
           this.notesHit2++
           this.streak2++
           this.easyArray2.shift();
+          if (this.streak2 > this.longestStreak2) {
+            this.longestStreak2 = this.streak2;
+          }
         } else if (this.easyArray2[0].direction === 'left' && leftKey2 === 'down') {
           this.score2 += 100;
           updateScore();
           this.notesHit2++
           this.streak2++
           this.easyArray2.shift();
+          if (this.streak2 > this.longestStreak2) {
+            this.longestStreak2 = this.streak2;
+          }
         } else if (this.easyArray2[0].direction === 'down' && downKey2 === 'down') {
           this.score2 += 100;
           updateScore();
           this.notesHit2++
           this.streak2++
           this.easyArray2.shift();
+          if (this.streak2 > this.longestStreak2) {
+            this.longestStreak2 = this.streak2;
+          }
         } else if (this.easyArray2[0].direction === 'up' && upKey2 === 'down') {
           this.score2 += 100;
           updateScore();
           this.notesHit2++
           this.streak2++
           this.easyArray2.shift();
+          if (this.streak2 > this.longestStreak2) {
+            this.longestStreak2 = this.streak2;
+          }
         }
       } else if (this.easyArray2[0].y > 700) {
         this.easyArray2.shift();
@@ -324,24 +352,39 @@ class Game {
           this.notesHit++
           this.streak++
           this.hardArray.shift();
+          if (this.streak > this.longestStreak) {
+            this.longestStreak = this.streak;
+          }
+
         } else if (this.hardArray[0].direction === 'left' && leftKey === 'down') {
           this.score += 100;
           updateScore();
           this.notesHit++
           this.streak++
           this.hardArray.shift();
+          if (this.streak > this.longestStreak) {
+            this.longestStreak = this.streak;
+          }
+
         } else if (this.hardArray[0].direction === 'down' && downKey === 'down') {
           this.score += 100;
           updateScore();
           this.notesHit++
           this.streak++
           this.hardArray.shift();
+          if (this.streak > this.longestStreak) {
+            this.longestStreak = this.streak;
+          }
+
         } else if (this.hardArray[0].direction === 'up' && upKey === 'down') {
           this.score += 100;
           updateScore();
           this.notesHit++
           this.streak++
           this.hardArray.shift();
+          if (this.streak > this.longestStreak) {
+            this.longestStreak = this.streak;
+          }
         }
       } else if (this.hardArray[0].y > 700) {
         this.hardArray.shift();
@@ -363,24 +406,36 @@ class Game {
           this.notesHit2++
           this.streak2++
           this.hardArray2.shift();
+          if (this.streak2 > this.longestStreak2) {
+            this.longestStreak2 = this.streak2;
+          }
         } else if (this.hardArray2[0].direction === 'left' && leftKey2 === 'down') {
           this.score2 += 100;
           updateScore();
           this.notesHit2++
           this.streak2++
           this.hardArray2.shift();
+          if (this.streak2 > this.longestStreak2) {
+            this.longestStreak2 = this.streak2;
+          }
         } else if (this.hardArray2[0].direction === 'down' && downKey2 === 'down') {
           this.score2 += 100;
           updateScore();
           this.notesHit2++
           this.streak2++
           this.hardArray2.shift();
+          if (this.streak2 > this.longestStreak2) {
+            this.longestStreak2 = this.streak2;
+          }
         } else if (this.hardArray2[0].direction === 'up' && upKey2 === 'down') {
           this.score2 += 100;
           updateScore();
           this.notesHit2++
           this.streak2++
           this.hardArray2.shift();
+          if (this.streak2 > this.longestStreak2) {
+            this.longestStreak2 = this.streak2;
+          }
         }
       } else if (this.hardArray2[0].y > 700) {
         this.hardArray2.shift();
@@ -403,24 +458,40 @@ class Game {
           this.notesHit++
           this.streak++
           this.mediumArray.shift();
+          if (this.streak > this.longestStreak) {
+            this.longestStreak = this.streak;
+          }
+
         } else if (this.mediumArray[0].direction === 'left' && leftKey === 'down') {
           this.score += 100;
           updateScore();
           this.notesHit++
           this.streak++
           this.mediumArray.shift();
+          if (this.streak > this.longestStreak) {
+            this.longestStreak = this.streak;
+          }
+
         } else if (this.mediumArray[0].direction === 'down' && downKey === 'down') {
           this.score += 100;
           updateScore();
           this.notesHit++
           this.streak++
           this.mediumArray.shift();
+          if (this.streak > this.longestStreak) {
+            this.longestStreak = this.streak;
+          }
+
         } else if (this.mediumArray[0].direction === 'up' && upKey === 'down') {
           this.score += 100;
           updateScore();
           this.notesHit++
           this.streak++
           this.mediumArray.shift();
+          if (this.streak > this.longestStreak) {
+            this.longestStreak = this.streak;
+          }
+
         }
       } else if (this.mediumArray[0].y > 700) {
         this.mediumArray.shift();
@@ -442,24 +513,36 @@ class Game {
           this.notesHit2++
           this.streak2++
           this.mediumArray2.shift();
+          if (this.streak2 > this.longestStreak2) {
+            this.longestStreak2 = this.streak2;
+          }
         } else if (this.mediumArray2[0].direction === 'left' && leftKey2 === 'down') {
           this.score2 += 100;
           updateScore();
           this.notesHit2++
           this.streak2++
           this.mediumArray2.shift();
+          if (this.streak2 > this.longestStreak2) {
+            this.longestStreak2 = this.streak2;
+          }
         } else if (this.mediumArray2[0].direction === 'down' && downKey2 === 'down') {
           this.score2 += 100;
           updateScore();
           this.notesHit2++
           this.streak2++
           this.mediumArray2.shift();
+          if (this.streak2 > this.longestStreak2) {
+            this.longestStreak2 = this.streak2;
+          }
         } else if (this.mediumArray2[0].direction === 'up' && upKey2 === 'down') {
           this.score2 += 100;
           updateScore();
           this.notesHit2++
           this.streak2++
           this.mediumArray2.shift();
+          if (this.streak2 > this.longestStreak2) {
+            this.longestStreak2 = this.streak2;
+          }
         }
       } else if (this.mediumArray2[0].y > 700) {
         this.mediumArray2.shift();

@@ -52,6 +52,12 @@ window.audioLove.volume = .3;
 $('#love').mouseenter(function() {
   window.audioLove.play();
 })
+window.audioCheer = new Audio('audio/cheerleader.mp3'); // song should be filepath
+window.audioCheer.volume = .3;
+$('#chearleader').mouseenter(function() {
+  window.audioCheer.play();
+})
+
 
 
 
@@ -80,6 +86,9 @@ $('#gangsta').mouseout(function() {
 })
 $('#love').mouseout(function() {
   window.audioLove.pause();
+})
+$('#chearleader').mouseout(function() {
+  window.audioCheer.pause();
 })
 
 
@@ -389,6 +398,10 @@ $('#love').on('click', function() {
   window.game = new Game(154, 'audio/LoveisinDanger.mp3', 290000, -50, difficulty, 32, 8.8);
 })
 
+$('#chearleader').on('click', function() {
+  $('.song-selection').css('display', 'none');
+  window.game = new Game(118, 'audio/cheerleader.mp3', 28000, -50, difficulty, 6, 6.74);
+})
 
 
 
