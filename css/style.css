@@ -99,6 +99,10 @@ button:hover {
   display: block;
 }
 
+#start-game {
+  display: none;
+}
+
 #scorebox2 {
   margin-left: 40px;
 }

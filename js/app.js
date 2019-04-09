@@ -4,6 +4,12 @@ window.addEventListener("keydown", function(e) {
   }
 });
 
+setTimeout(function(){
+$('#loading').remove();
+$('#start-game').css('display','block')
+},2000)
+
+
 // music previews
 
 window.audioCrab = new Audio('audio/MOONLIGHTSHADOW.mp3'); // song should be filepath
@@ -349,7 +355,7 @@ $('#miracle').on('click', function() {
 
 $('#MOONLIGHTSHADOW').on('click', function() {
   $('.song-selection').css('display', 'none');
-  window.game = new Game(140, 'audio/MOONLIGHTSHADOW.mp3', 89000, -20, difficulty, 18, 8);
+  window.game = new Game(140, 'audio/MOONLIGHTSHADOW.mp3', 89000, -5, difficulty, 18, 8);
 })
 
 $('#eurobeat').on('click', function() {
