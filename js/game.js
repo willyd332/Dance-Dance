@@ -62,7 +62,6 @@ class Game {
     window.endingSong = setTimeout(function() {
       that.endSong();
     }, that.length)
-      this.speed = this.speed / 2;
     setTimeout(function() {
       that.restartState = 'off';
       that.generateArrows();
