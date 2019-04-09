@@ -4,10 +4,10 @@ window.addEventListener("keydown", function(e) {
   }
 });
 
-setTimeout(function(){
-$('#loading').remove();
-$('#start-game').css('display','block')
-},3500)
+setTimeout(function() {
+  $('#loading').remove();
+  $('#start-game').css('display', 'block')
+}, 3500)
 
 
 // music previews
@@ -281,7 +281,7 @@ let playerAmount = 0;
 
 window.scratchaudio = new Audio('audio/buttonscratch.mp3');
 
-$('button').on('click', function(){
+$('button').on('click', function() {
   window.scratchaudio.volume = .5;
   window.scratchaudio.play();
 })
@@ -294,7 +294,7 @@ $('.faster').on('click', function() {
   window.game.restartSongFaster();
 })
 
-$('#start-game').on('click', function(){
+$('#start-game').on('click', function() {
   window.backaudio = new Audio('audio/backgroundmusic.mp3'); // song should be filepath
   window.backaudio.volume = .5;
   window.backaudio.play();
@@ -319,7 +319,7 @@ $('#two-player').on('click', function() {
   $('.difficulty-selection').css('display', 'inline-block')
 })
 
-$('.difficulty').on('click', function(){
+$('.difficulty').on('click', function() {
   window.bestshot = new Audio('audio/bestshot.mp3'); // song should be filepath
   window.bestshot.volume = .6;
   window.bestshot.play();
@@ -405,7 +405,7 @@ $('#chearleader').on('click', function() {
 
 
 
-$('.song').on('click', function(){
+$('.song').on('click', function() {
   window.goodsongaudio = new Audio('audio/okay.mp3'); // song should be filepath
   window.goodsongaudio.volume = .7;
   window.goodsongaudio.play();

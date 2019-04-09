@@ -56,12 +56,12 @@ class Game {
     $('.game').css('display', 'inline-block');
   };
   gameStart() {
-    $('#my-canvas').css('background-image','url("images/player-1-tut.png")');
-    $('#my-canvas2').css('background-image','url("images/player-2-tut.png")');
-    setTimeout(function(){
-      $('#my-canvas').css('background-image','none');
-      $('#my-canvas2').css('background-image','none');
-    },10000)
+    $('#my-canvas').css('background-image', 'url("images/player-1-tut.png")');
+    $('#my-canvas2').css('background-image', 'url("images/player-2-tut.png")');
+    setTimeout(function() {
+      $('#my-canvas').css('background-image', 'none');
+      $('#my-canvas2').css('background-image', 'none');
+    }, 10000)
     const that = this;
     this.playSong();
     animate2();
@@ -392,7 +392,7 @@ class Game {
         updateScore();
         this.notesMissed++
         if (this.streak > this.longestStreak) {
-          this.longestStreakstreak = this.streak;
+          this.longestStreak = this.streak;
         }
         this.streak = 0;
       }
@@ -638,6 +638,14 @@ class Game {
       }
       this.score = 0;
       this.score2 = 0;
+      this.streak = 0;
+      this.streak2 = 0;
+      this.notesHit = 0;
+      this.notesHit2 = 0;
+      this.notesMissed = 0;
+      this.notesMissed2 = 0;
+      this.longestStreak = 0;
+      this.longestStreak2 = 0;
       updateScore();
       const that = this;
       clearTimeout(window.endingSong)
@@ -655,11 +663,19 @@ class Game {
     setTimeout(function() {
       that.score = 0;
       that.score2 = 0;
+      this.streak = 0;
+      this.streak2 = 0;
+      this.notesHit = 0;
+      this.notesHit2 = 0;
+      this.notesMissed = 0;
+      this.notesMissed2 = 0;
+      this.longestStreak = 0;
+      this.longestStreak2 = 0;
       that.updateScore();
     }, 1000)
     this.gameStart();
   }
-  calculateResults(){
+  calculateResults() {
     $('#streak1').text(this.longestStreak)
     $('#streak2').text(this.longestStreak2)
     this.totalNotes = this.notesMissed + this.notesHit;
@@ -667,7 +683,7 @@ class Game {
     let percentageTwo = (this.notesHit2 / this.totalNotes) * 100;
     $('#percent1').text(percentageOne.toFixed(0));
     $('#percent2').text(percentageTwo.toFixed(0));
-    }
+  }
   endSong() {
     this.generating = false;
     clearInterval(window.easyArrowsGenerator);
