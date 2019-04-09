@@ -39,6 +39,16 @@ h1 {
   display: inline;
 }
 
+#my-canvas {
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+#my-canvas2 {
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+}
 
 .game {
   text-align: center;
@@ -54,6 +64,7 @@ h1 {
 }
 
 button {
+  font-style: italic;
   border-radius: 5px 70px;
   background-image: url('../images/banner.gif');
   background-position: center;

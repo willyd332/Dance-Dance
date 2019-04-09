@@ -381,7 +381,7 @@ $('#dancing').on('click', function() {
 
 $('#gangsta').on('click', function() {
   $('.song-selection').css('display', 'none');
-  window.game = new Game(105, 'audio/GangstaGangsta.mp3', 202000, -60, difficulty, 40, 6);
+  window.game = new Game(105, 'audio/GangstaGangsta.mp3', 202000, -30, difficulty, 40, 6);
 })
 
 $('#love').on('click', function() {
