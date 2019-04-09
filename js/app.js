@@ -356,12 +356,12 @@ $('#miracle').on('click', function() {
 
 $('#MOONLIGHTSHADOW').on('click', function() {
   $('.song-selection').css('display', 'none');
-  window.game = new Game(140, 'audio/MOONLIGHTSHADOW.mp3', 89000, -5, difficulty, 18, 8);
+  window.game = new Game(140, 'audio/MOONLIGHTSHADOW.mp3', 89000, 0, difficulty, 18, 8);
 })
 
 $('#eurobeat').on('click', function() {
   $('.song-selection').css('display', 'none');
-  window.game = new Game(154, 'audio/SUPEREUROBEAT.mp3', 96500, -50, difficulty, 0, 8.8);
+  window.game = new Game(154, 'audio/SUPEREUROBEAT.mp3', 96500, -100, difficulty, 0, 8.8);
 })
 
 $('#tothesky').on('click', function() {
@@ -376,7 +376,7 @@ $('#dragostea').on('click', function() {
 
 $('#dancing').on('click', function() {
   $('.song-selection').css('display', 'none');
-  window.game = new Game(160, 'audio/dancing.mp3', 319000, -55, difficulty, 43, 9.15);
+  window.game = new Game(160, 'audio/dancing.mp3', 319000, -0, difficulty, 43, 9.15);
 })
 
 $('#gangsta').on('click', function() {

@@ -3,7 +3,7 @@ body {
   font-family: 'Russo One', sans-serif;
   background-image: url('../images/rainbow.gif');
   background-size: cover;
-  background-repeat: no-repeat;
+  background-repeat: repeat;
 }
 h2 {
   font-family: 'Russo One', sans-serif;
@@ -46,6 +46,7 @@ h1 {
   display: none;
   height: 100%;
   width: 100%;
+  min-width: 1200px;
   background-image: url('../images/background.jpg');
   background-size: cover;
   background-repeat: no-repeat;
@@ -88,6 +89,7 @@ button:hover {
 }
 
 .song {
+  font-style: oblique;
   color: white;
   background-image: url('../images/banner2.jpg');
   background-position: center;
@@ -176,6 +178,7 @@ span {
 }
 
 .back {
+  font-style: oblique;
   margin-top: 10%
 }
 
