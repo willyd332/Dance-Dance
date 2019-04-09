@@ -360,42 +360,42 @@ $('#back-to-difficulty-selection').on('click', function() {
 
 $('#miracle').on('click', function() {
   $('.song-selection').css('display', 'none');
-  window.game = new Game(126, 'audio/Miracles.mp3', 200000, -75, difficulty, 17, 7.2);
+  window.game = new Game(126, 'audio/Miracles.mp3', 200000, -75, difficulty, 14, 7.2);
 })
 
 $('#MOONLIGHTSHADOW').on('click', function() {
   $('.song-selection').css('display', 'none');
-  window.game = new Game(140, 'audio/MOONLIGHTSHADOW.mp3', 89000, 0, difficulty, 18, 8);
+  window.game = new Game(140, 'audio/MOONLIGHTSHADOW.mp3', 89000, 0, difficulty, 14, 8);
 })
 
 $('#eurobeat').on('click', function() {
   $('.song-selection').css('display', 'none');
-  window.game = new Game(154, 'audio/SUPEREUROBEAT.mp3', 96500, -100, difficulty, 0, 8.8);
+  window.game = new Game(154, 'audio/SUPEREUROBEAT.mp3', 96500, -100, difficulty, 4, 8.8);
 })
 
 $('#tothesky').on('click', function() {
   $('.song-selection').css('display', 'none');
-  window.game = new Game(130, 'audio/ToTheSky.mp3', 96000, -95, difficulty, 6, 7.42);
+  window.game = new Game(130, 'audio/ToTheSky.mp3', 96000, -95, difficulty, 14, 7.42);
 })
 
 $('#dragostea').on('click', function() {
   $('.song-selection').css('display', 'none');
-  window.game = new Game(130, 'audio/DragosteaDinTei.mp3', 213000, -150, difficulty, 32, 7.42);
+  window.game = new Game(130, 'audio/DragosteaDinTei.mp3', 213000, -150, difficulty, 14, 7.42);
 })
 
 $('#dancing').on('click', function() {
   $('.song-selection').css('display', 'none');
-  window.game = new Game(160, 'audio/dancing.mp3', 319000, -0, difficulty, 43, 9.15);
+  window.game = new Game(160, 'audio/dancing.mp3', 319000, -0, difficulty, 14, 9.15);
 })
 
 $('#gangsta').on('click', function() {
   $('.song-selection').css('display', 'none');
-  window.game = new Game(105, 'audio/GangstaGangsta.mp3', 202000, -30, difficulty, 40, 6);
+  window.game = new Game(105, 'audio/GangstaGangsta.mp3', 202000, -30, difficulty, 14, 6);
 })
 
 $('#love').on('click', function() {
   $('.song-selection').css('display', 'none');
-  window.game = new Game(154, 'audio/LoveisinDanger.mp3', 290000, -50, difficulty, 32, 8.8);
+  window.game = new Game(154, 'audio/LoveisinDanger.mp3', 290000, -50, difficulty, 14, 8.8);
 })
 
 $('#chearleader').on('click', function() {
