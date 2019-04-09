@@ -26,10 +26,7 @@ class Game {
     this.notesMissed = 0;
     this.notesHit2 = 0;
     this.notesMissed2 = 0;
-    this.totalNotes = this.notesMissed + this.notesHit;
-    this.totalNotes2 = this.notesMissed2 + this.notesHit2;
-    this.perfectScore = this.totalNotes * 100;
-    this.perfectScore2 = this.totalNotes2 * 100;
+    this.totalNotes = 0;
     this.streak = 0;
     this.streak2 = 0;
     this.longestStreak = 0;
@@ -49,10 +46,7 @@ class Game {
   };
   playSong() {
     window.audio = new Audio(this.song); // song should be filepath
-    window.audio.volume = .7;
-    if (this.song === 'miracle.mp3') {
-      window.audio.volume = 1;
-    }
+    window.audio.volume = .9;
     window.audio.pause();
     window.audio.currentTime = 0;
     window.audio.play();
@@ -482,10 +476,6 @@ class Game {
               if (rightKey === 'down' || leftKey === 'down' || upKey === 'down' || downKey === 'down') {
                 this.score -= 8;
                 updateScore();
-                if (this.streak > this.longestStreak) {
-                  this.longestStreak = this.streak;
-                }
-                this.streak = 0;
               }
             }
           }
@@ -497,10 +487,6 @@ class Game {
             if (rightKey === 'down' || leftKey === 'down' || upKey === 'down' || downKey === 'down') {
               this.score -= 8;
               updateScore();
-              if (this.streak > this.longestStreak) {
-                this.longestStreak = this.streak;
-              }
-              this.streak = 0;
             }
           }
         }
@@ -510,10 +496,6 @@ class Game {
           if (rightKey === 'down' || leftKey === 'down' || upKey === 'down' || downKey === 'down') {
             this.score -= 8;
             updateScore();
-            if (this.streak > this.longestStreak) {
-              this.longestStreak = this.streak;
-            }
-            this.streak = 0;
           }
         }
       }
@@ -525,10 +507,6 @@ class Game {
               if (rightKey2 === 'down' || leftKey2 === 'down' || upKey2 === 'down' || downKey2 === 'down') {
                 this.score2 -= 8;
                 updateScore();
-                if (this.streak2 > this.longestStreak2) {
-                  this.longestStreak2 = this.streak2;
-                }
-                this.streak2 = 0;
               }
             }
           }
@@ -540,10 +518,6 @@ class Game {
             if (rightKey2 === 'down' || leftKey2 === 'down' || upKey2 === 'down' || downKey2 === 'down') {
               this.score2 -= 8;
               updateScore();
-              if (this.streak2 > this.longestStreak2) {
-                this.longestStreak2 = this.streak2;
-              }
-              this.streak2 = 0;
             }
           }
         }
@@ -553,10 +527,6 @@ class Game {
           if (rightKey2 === 'down' || leftKey2 === 'down' || upKey2 === 'down' || downKey2 === 'down') {
             this.score2 -= 8;
             updateScore();
-            if (this.streak2 > this.longestStreak2) {
-              this.longestStreak2 = this.streak2;
-            }
-            this.streak2 = 0;
           }
         }
       }
@@ -600,6 +570,15 @@ class Game {
     }, 1000)
     this.gameStart();
   }
+  calculateResults(){
+    $('#streak1').text(this.longestStreak)
+    $('#streak2').text(this.longestStreak2)
+    this.totalNotes = this.notesMissed + this.notesHit;
+    let percentageOne = (this.notesHit / this.totalNotes) * 100;
+    let percentageTwo = (this.notesHit2 / this.totalNotes) * 100;
+    $('#percent1').text(percentageOne.toFixed(0));
+    $('#percent2').text(percentageTwo.toFixed(0));
+    }
   endSong() {
     this.generating = false;
     clearInterval(window.easyArrowsGenerator);
@@ -616,7 +595,8 @@ class Game {
     }, 3000)
   }
   endGame() {
-    window.clapping = new Audio('Clapping.mp3'); // song should be filepath
+    this.calculateResults();
+    window.clapping = new Audio('audio/Clapping.mp3'); // song should be filepath
     window.clapping.volume = .5;
     window.clapping.play();
     window.backaudio.play();

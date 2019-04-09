@@ -4,27 +4,54 @@ window.addEventListener("keydown", function(e) {
   }
 });
 
-// mouse over
+// music previews
 
-window.audioCrab = new Audio('crabrave.mp3'); // song should be filepath
-window.audioCrab.volume = .1;
-$('#crabrave').mouseenter(function() {
+window.audioCrab = new Audio('audio/MOONLIGHTSHADOW.mp3'); // song should be filepath
+window.audioCrab.volume = .3;
+$('#MOONLIGHTSHADOW').mouseenter(function() {
   window.audioCrab.play();
 })
-window.audioRuss = new Audio('Miracles.mp3'); // song should be filepath
-window.audioRuss.volume = .4;
+window.audioRuss = new Audio('audio/Miracles.mp3'); // song should be filepath
+window.audioRuss.volume = .3;
 $('#miracle').mouseenter(function() {
   window.audioRuss.play();
 })
-window.audioEuro = new Audio('SUPEREUROBEAT.mp3'); // song should be filepath
-window.audioEuro.volume = .2;
+window.audioEuro = new Audio('audio/SUPEREUROBEAT.mp3'); // song should be filepath
+window.audioEuro.volume = .3;
 $('#eurobeat').mouseenter(function() {
   window.audioEuro.play();
 })
+window.audioSky = new Audio('audio/ToTheSky.mp3'); // song should be filepath
+window.audioSky.volume = .3;
+$('#tothesky').mouseenter(function() {
+  window.audioSky.play();
+})
+window.audioDragon = new Audio('audio/DragosteaDinTei.mp3'); // song should be filepath
+window.audioDragon.volume = .3;
+$('#dragostea').mouseenter(function() {
+  window.audioDragon.play();
+})
+window.audioDance = new Audio('audio/dancing.mp3'); // song should be filepath
+window.audioDance.volume = .3;
+$('#dancing').mouseenter(function() {
+  window.audioDance.play();
+})
+window.audioGang = new Audio('audio/GangstaGangsta.mp3'); // song should be filepath
+window.audioGang.volume = .3;
+$('#gangsta').mouseenter(function() {
+  window.audioGang.play();
+})
+window.audioLove = new Audio('audio/LoveisinDanger.mp3'); // song should be filepath
+window.audioLove.volume = .3;
+$('#love').mouseenter(function() {
+  window.audioLove.play();
+})
+
+
 
 // mouse exit
 
-$('#crabrave').mouseout(function() {
+$('#MOONLIGHTSHADOW').mouseout(function() {
   window.audioCrab.pause();
 })
 $('#miracle').mouseout(function() {
@@ -33,7 +60,21 @@ $('#miracle').mouseout(function() {
 $('#eurobeat').mouseout(function() {
   window.audioEuro.pause();
 })
-
+$('#tothesky').mouseout(function() {
+  window.audioSky.pause();
+})
+$('#dragostea').mouseout(function() {
+  window.audioDragon.pause();
+})
+$('#dancing').mouseout(function() {
+  window.audioDance.pause();
+})
+$('#gangsta').mouseout(function() {
+  window.audioGang.pause();
+})
+$('#love').mouseout(function() {
+  window.audioLove.pause();
+})
 
 
 
@@ -222,7 +263,7 @@ const liveGameListeners = () => {
 let difficulty = null;
 let playerAmount = 0;
 
-window.scratchaudio = new Audio('buttonscratch.mp3');
+window.scratchaudio = new Audio('audio/buttonscratch.mp3');
 
 $('button').on('click', function(){
   window.scratchaudio.volume = .5;
@@ -238,11 +279,11 @@ $('.faster').on('click', function() {
 })
 
 $('#start-game').on('click', function(){
-  window.backaudio = new Audio('backgroundmusic.mp3'); // song should be filepath
+  window.backaudio = new Audio('audio/backgroundmusic.mp3'); // song should be filepath
   window.backaudio.volume = .5;
   window.backaudio.play();
 
-  window.titleaudio = new Audio('dancedancerevolution.mp3'); // song should be filepath
+  window.titleaudio = new Audio('audio/dancedancerevolution.mp3'); // song should be filepath
   window.titleaudio.volume = .5;
   window.titleaudio.play();
 
@@ -263,7 +304,7 @@ $('#two-player').on('click', function() {
 })
 
 $('.difficulty').on('click', function(){
-  window.bestshot = new Audio('bestshot.mp3'); // song should be filepath
+  window.bestshot = new Audio('audio/bestshot.mp3'); // song should be filepath
   window.bestshot.volume = .6;
   window.bestshot.play();
 })
@@ -291,40 +332,63 @@ $('#back-to-player-selection').on('click', function() {
   $('.player-selection').css('display', 'inline-block')
 })
 
-$('#miracle').on('click', function() {
-  $('.song-selection').css('display', 'none');
-  window.game = new Game(126, 'Miracles.mp3', 200000, -75, difficulty, 17, 8);
-})
-$('#crabrave').on('click', function() {
-  $('.song-selection').css('display', 'none');
-  window.game = new Game(125, 'crabrave.mp3', 124000, -20, difficulty, 27, 5);
-})
-$('#eurobeat').on('click', function() {
-  $('.song-selection').css('display', 'none');
-  window.game = new Game(154, 'SUPEREUROBEAT.mp3', 96500, -60, difficulty, 0, 10);
-})
 $('#back-to-difficulty-selection').on('click', function() {
   $('.song-selection').css('display', 'none')
   $('.difficulty-selection').css('display', 'inline-block')
   window.backaudio.play();
 })
+
+
+/////// songs are below
+
+
+$('#miracle').on('click', function() {
+  $('.song-selection').css('display', 'none');
+  window.game = new Game(126, 'audio/Miracles.mp3', 200000, -75, difficulty, 17, 7);
+})
+
+$('#MOONLIGHTSHADOW').on('click', function() {
+  $('.song-selection').css('display', 'none');
+  window.game = new Game(140, 'audio/MOONLIGHTSHADOW.mp3', 89000, -20, difficulty, 18, 8);
+})
+
+$('#eurobeat').on('click', function() {
+  $('.song-selection').css('display', 'none');
+  window.game = new Game(154, 'audio/SUPEREUROBEAT.mp3', 96500, -50, difficulty, 0, 10);
+})
+
+$('#tothesky').on('click', function() {
+  $('.song-selection').css('display', 'none');
+  window.game = new Game(130, 'audio/ToTheSky.mp3', 96000, -95, difficulty, 6, 7);
+})
+
+$('#dragostea').on('click', function() {
+  $('.song-selection').css('display', 'none');
+  window.game = new Game(130, 'audio/DragosteaDinTei.mp3', 213000, -150, difficulty, 32, 9);
+})
+
+$('#dancing').on('click', function() {
+  $('.song-selection').css('display', 'none');
+  window.game = new Game(160, 'audio/dancing.mp3', 319000, -55, difficulty, 39, 15);
+})
+
+$('#gangsta').on('click', function() {
+  $('.song-selection').css('display', 'none');
+  window.game = new Game(105, 'audio/GangstaGangsta.mp3', 202000, -60, difficulty, 40, 6);
+})
+
+$('#love').on('click', function() {
+  $('.song-selection').css('display', 'none');
+  window.game = new Game(154, 'audio/LoveisinDanger.mp3', 290000, -50, difficulty, 32, 12);
+})
+
+
+
+
 $('.song').on('click', function(){
-  window.goodsongaudio = new Audio('okay.mp3'); // song should be filepath
+  window.goodsongaudio = new Audio('audio/okay.mp3'); // song should be filepath
   window.goodsongaudio.volume = .7;
   window.goodsongaudio.play();
 })
 
 liveGameListeners();
-
-/*
-bpm, song, length, arrowInitY, difficulty, waitTime
-
-Miracles:
-
-CRAB RAVE:
-var game = new Game(125,'crabrave.mp3',124000,-10,'medium', 27)
-
-SUPER EUROBEAT:
-var game = new Game(154,'SUPEREUROBEAT.mp3', 96500, -60, 'medium', 0)
-
-*/

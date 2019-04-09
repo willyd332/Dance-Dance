@@ -101,6 +101,8 @@ makeBox();
 const updateScore = () => {
   $('.score1').text(window.game.score)
   $('.score2').text(window.game.score2)
+  $('#score1').text(window.game.score)
+  $('#score2').text(window.game.score2)
 }
 
 const animateEverything = () => {

@@ -31,9 +31,15 @@
 
 
   <div class="song-selection">
-    <button type="button" class="song" id="crabrave">CRAB RAVE</button>
+    <button type="button" class="song" id="gangsta">GANGSTA GANGSTA</button>
     <button type="button" class="song" id="miracle">MIRACLES</button>
+    <button type="button" class="song" id="tothesky">TO THE SKY</button>
+    <button type="button" class="song" id="dragostea">DRAGOSTEA DIN TEI</button>
     <button type="button" class="song" id="eurobeat">SUPEREUROBEAT</button>
+    <button type="button" class="song" id="MOONLIGHTSHADOW">MOONLIGHTSHADOW</button>
+    <button type="button" class="song" id="love">LOVE IS IN DANGER</button>
+    <button type="button" class="song" id="dancing">DANCING (COOL VIBRATIONS)</button>
+
     <button type="button" class="back" id="back-to-difficulty-selection">BACK</button>
   </div>
 
@@ -47,8 +53,8 @@
       <canvas id="my-canvas2" width="480" height="750"></canvas>
     </div>
     <div class="game-menu">
-      <button class="main-menu">MAIN MENU</button>
-      <button class="restart"><span id="rsttxt">RESTART<span></button>
+      <button class="main-menu"><span id="rsttxt">MAINMENU</span></button>
+      <button class="restart"><span id="mnutxt">RESTART</span></button>
     </div>
     <div class="canvas-box">
       <canvas id="my-canvas" width="480" height="750"></canvas>
@@ -60,10 +66,39 @@
 
 
   <div class="results">
-    <h2>PLAYER-1: <span class="score1">00000</span></h2>
-    <h2>PLAYER-2: <span class="score2">00000</span></h2>
-    <button class="main-menu">MAIN MENU</button>
-    <button class="restart">RESTART</button>
+    <div class="resultbox">
+    <h1 class="resultH">PLAYER ONE</h2>
+      <div class="resultdisplay">
+        <h2>score</h2>
+        <span id="score1" class="result1">00000</span>
+      </div>
+      <div class="resultdisplay">
+        <h2>streak</h2>
+        <span id="streak1" class="result2">00000</span>
+      </div>
+      <div class="resultdisplay">
+        <h2>percent</h2>
+        <span id="percent1" class="result2">00000</span>
+      </div>
+    </div>
+      <div class="resultbox">
+    <h1 class="resultH">PLAYER TWO</h2>
+      <div class="resultdisplay">
+        <h2>score</h2>
+         <span id="score2" class="result2">00000</span>
+      </div>
+      <div class="resultdisplay">
+        <h2>streak</h2>
+        <span id="streak2" class="result2">00000</span>
+      </div>
+      <div class="resultdisplay">
+        <h2>percent</h2>
+        <span id="percent2" class="result2">00000</span>
+      </div>
+    </div>
+    ]
+    <button class="main-menu" id="endingmain">MAIN MENU</button>
+    <button class="restart" id="endingrestart">RESTART</button>
     <button class="faster">FASTER?</button>
   </div>
 
