@@ -56,6 +56,7 @@ class Game {
     $('.game').css('display', 'inline-block');
   };
   gameStart() {
+    this.resetValues();
     $('#my-canvas').css('background-image', 'url("images/player-1-tut.png")');
     $('#my-canvas2').css('background-image', 'url("images/player-2-tut.png")');
     const that = this;
@@ -65,6 +66,8 @@ class Game {
       that.endSong();
     }, that.length)
     setTimeout(function() {
+      that.resetValues();
+      updateScore();
       $('#my-canvas').css('background-image', 'none');
       $('#my-canvas2').css('background-image', 'none');
       that.restartState = 'off';
@@ -626,24 +629,18 @@ class Game {
     this.missclickPointReducer()
   }
   restartSong() {
+    if (this.generating === true){
     window.backaudio.pause();
     if (this.restartState === 'off') {
       $('.game').css('display', 'inline-block')
       $('.results').css('display', 'none')
       this.restartState = 'on';
-      if (this.generating === true) {
-        this.endSong();
-      }
-      this.score = 0;
-      this.score2 = 0;
-      this.streak = 0;
-      this.streak2 = 0;
-      this.notesHit = 0;
-      this.notesHit2 = 0;
-      this.notesMissed = 0;
-      this.notesMissed2 = 0;
-      this.longestStreak = 0;
-      this.longestStreak2 = 0;
+      window.audio.pause();
+      window.audio.currentTime = 0;
+      this.generating = false;
+      clearInterval(window.easyArrowsGenerator);
+      clearInterval(window.hardArrowsGenerator);
+      this.resetValues();
       updateScore();
       const that = this;
       clearTimeout(window.endingSong)
@@ -652,6 +649,19 @@ class Game {
         that.gameStart();
       }, 2000)
     }
+  }
+  }
+  resetValues(){
+    this.score = 0;
+    this.score2 = 0;
+    this.streak = 0;
+    this.streak2 = 0;
+    this.notesHit = 0;
+    this.notesHit2 = 0;
+    this.notesMissed = 0;
+    this.notesMissed2 = 0;
+    this.longestStreak = 0;
+    this.longestStreak2 = 0;
   }
   restartSongFaster() {
     window.backaudio.pause();
