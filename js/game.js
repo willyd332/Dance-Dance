@@ -58,10 +58,6 @@ class Game {
   gameStart() {
     $('#my-canvas').css('background-image', 'url("images/player-1-tut.png")');
     $('#my-canvas2').css('background-image', 'url("images/player-2-tut.png")');
-    setTimeout(function() {
-      $('#my-canvas').css('background-image', 'none');
-      $('#my-canvas2').css('background-image', 'none');
-    }, 10000)
     const that = this;
     this.playSong();
     animate2();
@@ -69,6 +65,8 @@ class Game {
       that.endSong();
     }, that.length)
     setTimeout(function() {
+      $('#my-canvas').css('background-image', 'none');
+      $('#my-canvas2').css('background-image', 'none');
       that.restartState = 'off';
       that.generateArrows();
       that.generating = true;

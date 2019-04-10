@@ -370,7 +370,7 @@ $('#MOONLIGHTSHADOW').on('click', function() {
 
 $('#eurobeat').on('click', function() {
   $('.song-selection').css('display', 'none');
-  window.game = new Game(154, 'audio/SUPEREUROBEAT.mp3', 96500, -100, difficulty, 4, 8.8);
+  window.game = new Game(154, 'audio/SUPEREUROBEAT.mp3', 96500, -100, difficulty, 14, 8.8);
 })
 
 $('#tothesky').on('click', function() {
@@ -400,7 +400,7 @@ $('#love').on('click', function() {
 
 $('#chearleader').on('click', function() {
   $('.song-selection').css('display', 'none');
-  window.game = new Game(118, 'audio/cheerleader.mp3', 28000, -50, difficulty, 6, 6.74);
+  window.game = new Game(118, 'audio/cheerleader.mp3', 28000, -50, difficulty, 14, 6.74);
 })
 
 
