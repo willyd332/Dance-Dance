@@ -34,6 +34,7 @@ class Game {
     this.restartState = 'off';
     this.waitTime = waitTime;
     this.speed = speed;
+    this.gameOver = false;
     this.generating = false;
     this.gameBuild();
     this.gameStart();
@@ -629,7 +630,7 @@ class Game {
     this.missclickPointReducer()
   }
   restartSong() {
-    if (this.generating === true){
+    if (this.generating === true || this.gameOver === true){
     window.backaudio.pause();
     if (this.restartState === 'off') {
       $('.game').css('display', 'inline-block')
@@ -708,6 +709,7 @@ class Game {
     }, 3000)
   }
   endGame() {
+    this.gameOver = true;
     this.calculateResults();
     window.clapping = new Audio('audio/Clapping.mp3'); // song should be filepath
     window.clapping.volume = .5;
