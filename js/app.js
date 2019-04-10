@@ -360,7 +360,7 @@ $('#back-to-difficulty-selection').on('click', function() {
 
 $('#miracle').on('click', function() {
   $('.song-selection').css('display', 'none');
-  window.game = new Game(126, 'audio/Miracles.mp3', 92000, -75, difficulty, 14, 7.2);
+  window.game = new Game(126, 'audio/Miracles.mp3', 91000, -75, difficulty, 14, 7.2);
 })
 
 $('#MOONLIGHTSHADOW').on('click', function() {
@@ -380,22 +380,22 @@ $('#tothesky').on('click', function() {
 
 $('#dragostea').on('click', function() {
   $('.song-selection').css('display', 'none');
-  window.game = new Game(130, 'audio/DragosteaDinTei.mp3', 91000, -150, difficulty, 14, 7.42);
+  window.game = new Game(130, 'audio/DragosteaDinTei.mp3', 90000, -150, difficulty, 14, 7.42);
 })
 
 $('#dancing').on('click', function() {
   $('.song-selection').css('display', 'none');
-  window.game = new Game(160, 'audio/dancing.mp3', 90500, -0, difficulty, 14, 9.15);
+  window.game = new Game(160, 'audio/dancing.mp3', 88000, -0, difficulty, 14, 9.15);
 })
 
 $('#gangsta').on('click', function() {
   $('.song-selection').css('display', 'none');
-  window.game = new Game(105, 'audio/GangstaGangsta.mp3', 65000, -30, difficulty, 14, 6);
+  window.game = new Game(105, 'audio/GangstaGangsta.mp3', 64500, -30, difficulty, 14, 6);
 })
 
 $('#love').on('click', function() {
   $('.song-selection').css('display', 'none');
-  window.game = new Game(154, 'audio/LoveisinDanger.mp3', 111000, -50, difficulty, 14, 8.8);
+  window.game = new Game(154, 'audio/LoveisinDanger.mp3', 109000, -50, difficulty, 14, 8.8);
 })
 
 $('#chearleader').on('click', function() {
