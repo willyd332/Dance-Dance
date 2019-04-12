@@ -47,7 +47,7 @@ class Game {
   };
   playSong() {
     window.audio = new Audio(this.song); // song should be filepath
-    window.audio.volume = .9;
+    window.audio.volume = .65;
     window.audio.pause();
     window.audio.currentTime = 0;
     window.audio.play();
