@@ -2,6 +2,20 @@
 ## LINK TO GAME: https://willyd332.github.io/Dance-Dance/
 
 
+### Description:
+
+DANCE DANCE is a music based browser game inspired by the classic Dance Dance Revolution. It uses Javascript, jQuery, and HTML Canvas, and is hosted fully on the client side. There are currently 9 playable songs, and more could be added easily as most of the game logic is dependent on the BPM of the song (given 4/4 time).
+
+The falling arrows are generated randomly at three different difficulty levels, easy, medium, and hard. One or Two players can play at once. The goal is to acheive the highest score (hit all the arrows) or beat your opponents score. All of the songs are limited to around one minute long. 
+
+The game is styled using pure CSS and was meant to have the asthetic of a modern arcade. In the future I would like to develope a backend that makes calls to Spotify's API and allows the game to be played with any number of songs.
+
+
+
+
+
+
+
 ### Necessary Deliverables:
 
 
