@@ -1,5 +1,5 @@
 # DANCE DANCE
-https://willyd332.github.io/Dance-Dance/
+## LINK TO GAME: https://willyd332.github.io/Dance-Dance/
 
 
 ### Necessary Deliverables:
